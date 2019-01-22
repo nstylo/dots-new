@@ -41,7 +41,10 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons 
+bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,run -show combi -modi combi" 
+
+# rofi for open applications
+bindsym $mod+x exec --no-startup-id "rofi -show window" 
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
