@@ -1,0 +1,13 @@
+#!/bin/bash
+
+dir="$1"
+outdir=""$(dirname "$dir")/$(basename "$dir")" - "$2"bit lossless" 
+
+if [[ -d $dir ]]; then
+	[[ ! -d $outdir ]] && mkdir "$outdir"
+	for f in "$dir"*.flac; do
+		sox "$f" -G -b $2 "$outdir"/"$(basename "$f")" rate -v -L $3 dither
+	done
+else
+	echo "\"$1\": no such directory"
+fi

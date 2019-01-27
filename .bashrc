@@ -159,6 +159,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 alias la='ls -a'
 alias shutdown='shutdown now'
 alias suspend='systemctl suspend'
+
 # ptpb
 export PATH=$PATH:~/bin
 
