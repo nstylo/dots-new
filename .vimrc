@@ -1,12 +1,16 @@
 set number relativenumber
 set nocompatible
-filetype plugin on
-syntax on
+set showcmd
 set tabstop=4
 set shiftwidth=4
-autocmd Filetype tex setl updatetime=500
+set ignorecase
+set hlsearch
+set incsearch
+set scrolloff=999
+filetype plugin on
+syntax on
 
-" set statusline+=%F
+autocmd Filetype tex setl updatetime=500
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
@@ -25,15 +29,12 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
-			
+
 " setup airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
-
-" set ale 
-" let g:ale_completion_enabled = 1
 
 " set live preview viewer
 let g:livepreview_previewer = 'zathura'
@@ -68,6 +69,7 @@ nnoremap <C-h> :bp<CR>
 nnoremap <C-l> :bn<CR>
 nnoremap <C-w><C-g> :split<CR>
 nnoremap <C-w><C-v> :vsplit<CR>
+
 " map fzf
 nnoremap <C-p> :FZF<CR>
 " toggle nerd tree
