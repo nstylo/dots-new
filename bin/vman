@@ -1,0 +1,4 @@
+#!/bin/bash
+
+vman () { text=$(man "$@") && echo "$text" | vim -R +":set ft=man" - ; }
+
