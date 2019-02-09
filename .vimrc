@@ -25,6 +25,8 @@ Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
+runtime ftplugin/man.vim
+
 " setup gruvbox
 colorscheme gruvbox
 set background=dark

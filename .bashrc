@@ -19,17 +19,16 @@ alias suspend='systemctl suspend'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 source ~/bin/extract
+source ~/bin/vman
+source ~/bin/fuzzy
 
 # ptpb
 export PATH=$PATH:~/bin
 
-# --files: List files that would be searched but do not search
-# --no-ignore: Do not respect .gitignore, etc...
-# --hidden: Search hidden files and folders
-# --follow: Follow symlinks
-# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+# fzf with fd for super fast fuzzuy searching
+export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd -t d'
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
