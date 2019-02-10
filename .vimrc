@@ -25,6 +25,7 @@ Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
+" :Man to open man pages
 runtime ftplugin/man.vim
 
 " setup gruvbox
@@ -71,9 +72,16 @@ nnoremap <C-h> :bp<CR>
 nnoremap <C-l> :bn<CR>
 nnoremap <C-w><C-g> :split<CR>
 nnoremap <C-w><C-v> :vsplit<CR>
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " map fzf
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-f> :Lines<CR>
 " toggle nerd tree
 nmap <C-n> :NERDTreeToggle<CR>
 
