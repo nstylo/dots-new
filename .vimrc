@@ -1,7 +1,7 @@
 set number relativenumber
-set nocompatible
-set showcmd
-set tabstop=4
+set nocompatible 
+set showcmd 
+set tabstop=4 
 set shiftwidth=4
 set ignorecase
 set hlsearch
@@ -10,13 +10,12 @@ set scrolloff=999
 filetype plugin on
 syntax on
 
-autocmd Filetype tex setl updatetime=500
+autocmd Filetype tex setl updatetime=100
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
@@ -42,48 +41,49 @@ let g:airline_powerline_fonts = 1
 " set live preview viewer
 let g:livepreview_previewer = 'zathura'
 
+" vimtex autocompletion with ycm
+if !exists('g:ycm_semantic_triggers')
+	let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
 " setup nerdtree
 " autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" fzf & ripgrep + colorfix 
-" --column: Show column number
-" --line-number: Show line number
-" --no-heading: Do not show file headings in results
-" --fixed-strings: Search term as a literal string
-" --ignore-case: Case insensitive search
-" --no-ignore: Do not respect .gitignore, etc...
-" --hidden: Search hidden files and folders
-" --follow: Follow symlinks
-" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-" --color: Search color options
-
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-
-set grepprg=rg\ --vimgrep
 
 " color fix
 let g:fzf_colors =
 \ { 'fg': ['fg', 'Normal'],
 \ 'bg': ['bg', 'Normal']}
 
+" assign mapleader
+let mapleader=" "
 " custom keybinds
-nnoremap <C-h> :bp<CR>
-nnoremap <C-l> :bn<CR>
-nnoremap <C-w><C-g> :split<CR>
-nnoremap <C-w><C-v> :vsplit<CR>
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+nmap <leader>l :bn<CR>
+nmap <leader>h :bp<CR>
+nmap <leader>q :quit<CR>
+nmap <leader>g :split<CR>
+nmap <leader>v :vsplit<CR>
+nmap <leader><Up> :res +5<CR>
+nmap <leader><Down> :res -5<CR>
+nmap <leader><Right> :vertical res +5<CR>
+nmap <leader><Left> :vertical res -5<CR>
 
 " map fzf
-nnoremap <C-p> :Files<CR>
-nnoremap <C-f> :Lines<CR>
-" toggle nerd tree
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <leader>p :Files<CR>
+nmap <leader>f :BLines<CR>
+nmap <leader>F :Lines<CR>
+nmap <leader>b :Buffers<CR>
+nmap <Leader>H :Helptags!<CR>
+nmap <Leader>C :Commands<CR>
+nmap <Leader>: :History:<CR>
+nmap <Leader>/ :History/<CR>
+nmap <Leader>M :Maps<CR>
+nmap <Leader>s :Filetypes<CR>
 
 " vimtex mappings
 nmap I :LLPStartPreview<CR>

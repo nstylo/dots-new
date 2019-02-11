@@ -124,7 +124,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! URxvt*urgentOnBell:               boolean
 ! URxvt*visualBell:                 boolean
 ! URxvt*mapAlert:                   boolean
-! URxvt*meta8:                      boolean
+URxvt*meta8:                     	true 
 ! URxvt*tripleclickwords:           boolean
 ! URxvt*insecure:                   boolean
 ! URxvt*cursorUnderline:            boolean
