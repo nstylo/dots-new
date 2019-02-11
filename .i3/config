@@ -15,17 +15,11 @@ new_float normal
 bindsym Print exec maim --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 bindsym $mod+Print exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 
-# custom script binds
 # toogle touchpad
 bindsym $mod+Shift+t exec /usr/local/bin/touchpad_toggle.sh 
 
 # Hide borders
 hide_edge_borders none
-
-# change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -67,13 +61,12 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
-bindsym $mod+F3 exec pcmanfm
+# bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+# bindsym $mod+Shift+F3 exec gksu pcmanfm
+# bindsym $mod+F5 exec terminal -e 'mocp'
+# bindsym $mod+t exec --no-startup-id pkill compton
+# bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # bindsym Print exec --no-startup-id i3-scrot
 # bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -91,10 +84,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -103,10 +96,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -225,8 +218,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="KeePass2"] move scratchpad, resize set 900 500, scratchpad show, move position center 
-for_window [class="Clementine"] move scratchpad, resize set 1536 864, scratchpad show, move position center 
+# for_window [class="Clementine"] move scratchpad, resize set 1536 864, scratchpad show, move position center 
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -281,12 +273,10 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-# bindsym $mod+9 exec --no-startup-id blurlock
-
 # Autostart applications
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id redshift -l 51.44:5.47
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
@@ -338,7 +328,7 @@ bar {
 }
 
 # hide/unhide bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -355,8 +345,8 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+# gaps inner 14
+# gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -364,7 +354,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -408,6 +398,3 @@ mode "$mode_gaps_outer" {
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
 }
-
-# redshift
-exec --no-startup-id redshift -l 51.44:5.47

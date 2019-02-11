@@ -1,5 +1,0 @@
-#!/bin/bash
-# rsync soulseek folder-contents into music folder
-
-#mv ~/Soulseek\ Downloads/complete/*/* ~/Public/
-cp -al ~/Soulseek\ Downloads/complete/*/* ~/Music/ && rm -r ~/Soulseek\ Downloads/complete/*/*
