@@ -1,16 +1,17 @@
-set number relativenumber
 set nocompatible 
+set number relativenumber
 set showcmd 
 set tabstop=4 
 set shiftwidth=4
 set ignorecase
+set smartindent
+set autoindent
+set smartcase
 set hlsearch
 set incsearch
 set scrolloff=999
 filetype plugin on
 syntax on
-
-autocmd Filetype tex setl updatetime=100
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
@@ -18,10 +19,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'
+Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " :Man to open man pages
@@ -41,15 +44,14 @@ let g:airline_powerline_fonts = 1
 " set live preview viewer
 let g:livepreview_previewer = 'zathura'
 
+" set gitgutter update time to 100ms
+set updatetime=100
+
 " vimtex autocompletion with ycm
 if !exists('g:ycm_semantic_triggers')
 	let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-
-" setup nerdtree
-" autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " color fix
 let g:fzf_colors =
@@ -58,11 +60,12 @@ let g:fzf_colors =
 
 " assign mapleader
 let mapleader=" "
-" custom keybinds
+
+" easy buffer movement 
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
+nmap <silent> <C-k> :wincmd k<CR>
 nmap <leader>l :bn<CR>
 nmap <leader>h :bp<CR>
 nmap <leader>q :quit<CR>
@@ -72,6 +75,21 @@ nmap <leader><Up> :res +5<CR>
 nmap <leader><Down> :res -5<CR>
 nmap <leader><Right> :vertical res +5<CR>
 nmap <leader><Left> :vertical res -5<CR>
+
+" move line up or down
+nnoremap <Leader>j ddp
+nnoremap <Leader>k ddkP
+
+" substitute makro 
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
+
+" auto expand braces
+inoremap {<cr> {<cr>}<c-o>O
+inoremap [<cr> [<cr>]<c-o>O<tab>
+inoremap (<cr> (<cr>)<c-o>O<tab>
+
+" Double esc to disable hlsearch
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
 nmap <leader>p :Files<CR>
@@ -86,4 +104,4 @@ nmap <Leader>M :Maps<CR>
 nmap <Leader>s :Filetypes<CR>
 
 " vimtex mappings
-nmap I :LLPStartPreview<CR>
+autocmd FileType tex nmap I :LLPStartPreview<CR>

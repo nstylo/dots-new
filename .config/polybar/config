@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center = 
-modules-right = filesystem memory cpu wlan eth battery temperature date weather powermenu
+modules-right = filesystem memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -97,17 +97,6 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 ;label-indicator-underline = ${colors.secondary}
-
-;buienradar
-[module/weather]
-type = custom/script
-;look 30 min ahaead, nl, latitude, longitude
-exec = /home/niklas/bin/weather
-;update every 5 minutes
-interval = 300
-
-format-prefix = "wthr "
-format-prefix-foreground = ${colors.foreground-alt}
 
 [module/filesystem]
 type = internal/fs

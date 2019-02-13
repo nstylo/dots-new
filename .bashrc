@@ -7,9 +7,12 @@
 # set vim as standard editor
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR 
 
+export PATH=$PATH:~/bin
+export BROWSER=firefox
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 # unlimited bash history
-HISTSIZE= 
-HISTFILESIZE=
+export HISTSIZE= 
+export HISTFILESIZE=
 
 # custom alias
 alias la='ls -a'
@@ -19,16 +22,15 @@ alias suspend='systemctl suspend'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 source ~/bin/extract
-source ~/bin/vman
 source ~/bin/fuzzy
 
-# ptpb
-export PATH=$PATH:~/bin
-
 # fzf with fd for super fast fuzzuy searching
-export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"'
+# export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --hidden --type d'
+
+export FZF_DEFAULT_OPTS='--ansi'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.mozilla,*cache*,*Cache*,.node*,.electron*,.local,.steam,.cache,.git,Steam,Music,Videos}" 2> /dev/null'
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
