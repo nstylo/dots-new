@@ -1,9 +1,11 @@
 set nocompatible 
 set number relativenumber
 set showcmd 
+set expandtab
 set tabstop=4 
 set shiftwidth=4
 set ignorecase
+set smarttab
 set smartindent
 set autoindent
 set smartcase
@@ -84,9 +86,25 @@ nnoremap <Leader>k ddkP
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
 " auto expand braces
-inoremap {<cr> {<cr>}<c-o>O
-inoremap [<cr> [<cr>]<c-o>O<tab>
-inoremap (<cr> (<cr>)<c-o>O<tab>
+inoremap ( ()<Esc>:call BC_AddChar(")")<CR>i
+inoremap { {<CR>}<Esc>:call BC_AddChar("}")<CR><Esc>kA<CR>
+inoremap [ []<Esc>:call BC_AddChar("]")<CR>i
+" jump out of parenthesis
+inoremap <C-j> <Esc>:call search(BC_GetChar(), "W")<CR>a
+
+function! BC_AddChar(schar)
+ if exists("b:robstack")
+ let b:robstack = b:robstack . a:schar
+ else
+ let b:robstack = a:schar
+ endif
+endfunction
+
+function! BC_GetChar()
+ let l:char = b:robstack[strlen(b:robstack)-1]
+ let b:robstack = strpart(b:robstack, 0, strlen(b:robstack)-1)
+ return l:char
+endfunction
 
 " Double esc to disable hlsearch
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
