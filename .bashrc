@@ -8,6 +8,7 @@
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR 
 
 export PATH=$PATH:~/bin
+export PATH="$HOME/.cargo/bin:$PATH"
 export BROWSER=firefox
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 # unlimited bash history
@@ -25,11 +26,10 @@ source ~/bin/extract
 source ~/bin/fuzzy
 
 # fzf with fd for super fast fuzzuy searching
-# export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git"'
+# export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude ".git"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --hidden --type d'
-
-export FZF_DEFAULT_OPTS='--ansi'
+# export FZF_DEFAULT_OPTS='--ansi'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.mozilla,*cache*,*Cache*,.node*,.electron*,.local,.steam,.cache,.git,Steam,Music,Videos}" 2> /dev/null'
 
 # fzf

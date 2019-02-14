@@ -55,28 +55,23 @@ if !exists('g:ycm_semantic_triggers')
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
-" color fix
-let g:fzf_colors =
-\ { 'fg': ['fg', 'Normal'],
-\ 'bg': ['bg', 'Normal']}
-
 " assign mapleader
 let mapleader=" "
 
 " easy buffer movement 
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-l> :wincmd l<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <leader>l :bn<CR>
-nmap <leader>h :bp<CR>
-nmap <leader>q :quit<CR>
-nmap <leader>g :split<CR>
-nmap <leader>v :vsplit<CR>
-nmap <leader><Up> :res +5<CR>
-nmap <leader><Down> :res -5<CR>
-nmap <leader><Right> :vertical res +5<CR>
-nmap <leader><Left> :vertical res -5<CR>
+map <silent> <C-h> :wincmd h<CR>
+map <silent> <C-j> :wincmd j<CR>
+map <silent> <C-l> :wincmd l<CR>
+map <silent> <C-k> :wincmd k<CR>
+map <leader>l :bn<CR>
+map <leader>h :bp<CR>
+map <leader>q :quit<CR>
+map <leader>g :split<CR>
+map <leader>v :vsplit<CR>
+map <leader><Up> :res +5<CR>
+map <leader><Down> :res -5<CR>
+map <leader><Right> :vertical res +5<CR>
+map <leader><Left> :vertical res -5<CR>
 
 " move line up or down
 nnoremap <Leader>j ddp
@@ -85,13 +80,13 @@ nnoremap <Leader>k ddkP
 " substitute makro 
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
-" auto expand braces
+" auto expand brackets
 inoremap ( ()<Esc>:call BC_AddChar(")")<CR>i
 inoremap { {<CR>}<Esc>:call BC_AddChar("}")<CR><Esc>kA<CR>
 inoremap [ []<Esc>:call BC_AddChar("]")<CR>i
 " jump out of parenthesis
 inoremap <C-j> <Esc>:call search(BC_GetChar(), "W")<CR>a
-
+" storing brackets
 function! BC_AddChar(schar)
  if exists("b:robstack")
  let b:robstack = b:robstack . a:schar
@@ -99,7 +94,7 @@ function! BC_AddChar(schar)
  let b:robstack = a:schar
  endif
 endfunction
-
+" retrieving brackets
 function! BC_GetChar()
  let l:char = b:robstack[strlen(b:robstack)-1]
  let b:robstack = strpart(b:robstack, 0, strlen(b:robstack)-1)
@@ -110,16 +105,46 @@ endfunction
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
-nmap <leader>p :Files<CR>
-nmap <leader>f :BLines<CR>
-nmap <leader>F :Lines<CR>
-nmap <leader>b :Buffers<CR>
-nmap <Leader>H :Helptags!<CR>
-nmap <Leader>C :Commands<CR>
-nmap <Leader>: :History:<CR>
-nmap <Leader>/ :History/<CR>
-nmap <Leader>M :Maps<CR>
-nmap <Leader>s :Filetypes<CR>
+map <leader>p :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR> " :Files
+map <leader>f :BLines<CR>
+map <leader>F :Lines<CR>
+map <leader>b :Buffers<CR>
+map <Leader>H :Helptags!<CR>
+map <Leader>C :Commands<CR>
+map <Leader>: :History:<CR>
+map <Leader>/ :History/<CR>
+map <Leader>M :Maps<CR>
+map <Leader>s :Filetypes<CR>
 
 " vimtex mappings
-autocmd FileType tex nmap I :LLPStartPreview<CR>
+autocmd FileType tex map I :LLPStartPreview<CR>
+
+" Files + devicons -> https://coreyja.com/blog/2018/11/17/vim-fzf-with-devicons.html
+function! Fzf_files_with_dev_icons(command)
+  let l:fzf_files_options = '--preview "bat --color always --style numbers {2..} | head -'.&lines.'"'
+   function! s:edit_devicon_prepended_file(item)
+    let l:file_path = a:item[4:-1]
+    execute 'silent e' l:file_path
+  endfunction
+   call fzf#run({
+        \ 'source': a:command.' | devicon-lookup',
+        \ 'sink':   function('s:edit_devicon_prepended_file'),
+        \ 'options': '-m ' . l:fzf_files_options,
+        \ 'down':    '40%' })
+endfunction
+ function! Fzf_git_diff_files_with_dev_icons()
+  let l:fzf_files_options = '--ansi --preview "sh -c \"(git diff --color=always -- {3..} | sed 1,4d; bat --color always --style numbers {3..}) | head -'.&lines.'\""'
+   function! s:edit_devicon_prepended_file_diff(item)
+    echom a:item
+    let l:file_path = a:item[7:-1]
+    echom l:file_path
+    let l:first_diff_line_number = system("git diff -U0 ".l:file_path." | rg '^@@.*\+' -o | rg '[0-9]+' -o | head -1")
+     execute 'silent e' l:file_path
+    execute l:first_diff_line_number
+  endfunction
+   call fzf#run({
+        \ 'source': 'git -c color.status=always status --short --untracked-files=all | devicon-lookup',
+        \ 'sink':   function('s:edit_devicon_prepended_file_diff'),
+        \ 'options': '-m ' . l:fzf_files_options,
+        \ 'down':    '40%' })
+endfunction
