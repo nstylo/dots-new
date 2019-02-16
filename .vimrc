@@ -30,6 +30,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 call plug#end()
 
 " :Man to open man pages
@@ -84,14 +85,16 @@ map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-l> :wincmd l<CR>
 map <silent> <C-k> :wincmd k<CR>
-" TODO: change buffer management to alt
 map <leader>q :quit<CR>
-map <leader>g :split<CR>
-map <leader>v :vsplit<CR>
-map <leader><Up> :res +5<CR>
-map <leader><Down> :res -5<CR>
-map <leader><Right> :vertical res +5<CR>
-map <leader><Left> :vertical res -5<CR>
+map <leader>g :new<CR>
+map <leader>v :vnew<CR>
+map <M-l> :bn<CR>
+map <M-h> :bp<CR>
+map <M-d> :bd<CR>
+map <M-Up> :res +5<CR>
+map <M-Down> :res -5<CR>
+map <M-Right> :vertical res +5<CR>
+map <M-Left> :vertical res -5<CR>
 
 " move line up or down
 nnoremap <Leader>j ddp
@@ -107,12 +110,15 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 " Double esc to disable hlsearch
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
+let g:fzf_buffers_jump = 1
+
 " map fzf
 " TODO: use ctrl for fzf 
 map <leader>p :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
 map <leader>f :BLines<CR>
 map <leader>F :Lines<CR>
 map <leader>b :Buffers<CR>
+map <leader>s :BCommits<CR>
 map <Leader>H :Helptags!<CR>
 map <Leader>: :History:<CR>
 map <Leader>/ :History/<CR>
@@ -153,21 +159,6 @@ function! Fzf_files_with_dev_icons(command)
         \ 'source': a:command.' | devicon-lookup',
         \ 'sink':   function('s:edit_devicon_prepended_file'),
         \ 'options': '-m ' . l:fzf_files_options,
-        \ 'down':    '40%' })
-endfunction
- function! Fzf_git_diff_files_with_dev_icons()
-  let l:fzf_files_options = '--ansi --preview "sh -c \"(git diff --color=always -- {3..} | sed 1,4d; bat --color always --style numbers {3..}) | head -'.&lines.'\""'
-   function! s:edit_devicon_prepended_file_diff(item)
-    echom a:item
-    let l:file_path = a:item[7:-1]
-    echom l:file_path
-    let l:first_diff_line_number = system("git diff -U0 ".l:file_path." | rg '^@@.*\+' -o | rg '[0-9]+' -o | head -1")
-     execute 'silent e' l:file_path
-    execute l:first_diff_line_number
-  endfunction
-   call fzf#run({
-        \ 'source': 'git -c color.status=always status --short --untracked-files=all | devicon-lookup',
-        \ 'sink':   function('s:edit_devicon_prepended_file_diff'),
-        \ 'options': '-m ' . l:fzf_files_options,
-        \ 'down':    '40%' })
+        \ 'down':    '40%',
+        \ 'dir': "~"})
 endfunction
