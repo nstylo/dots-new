@@ -1,8 +1,8 @@
 set nocompatible 
 set number relativenumber
 set showcmd 
-set expandtab
 set tabstop=4 
+set expandtab
 set shiftwidth=4
 set ignorecase
 set smarttab
@@ -12,6 +12,8 @@ set smartcase
 set hlsearch
 set incsearch
 set scrolloff=999
+let g:gruvbox_italic=1
+let vimtex_compiler_progname='nvr'
 filetype plugin on
 syntax on
 
@@ -27,6 +29,7 @@ Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 " :Man to open man pages
@@ -55,6 +58,24 @@ if !exists('g:ycm_semantic_triggers')
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
+" nerdcommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
 " assign mapleader
 let mapleader=" "
 
@@ -63,8 +84,7 @@ map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-l> :wincmd l<CR>
 map <silent> <C-k> :wincmd k<CR>
-map <leader>l :bn<CR>
-map <leader>h :bp<CR>
+" TODO: change buffer management to alt
 map <leader>q :quit<CR>
 map <leader>g :split<CR>
 map <leader>v :vsplit<CR>
@@ -77,13 +97,33 @@ map <leader><Left> :vertical res -5<CR>
 nnoremap <Leader>j ddp
 nnoremap <Leader>k ddkP
 
+" indent lines
+map <leader>l >><CR>
+map <leader>h <<<CR>
+
 " substitute makro 
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
+" Double esc to disable hlsearch
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+
+" map fzf
+" TODO: use ctrl for fzf 
+map <leader>p :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
+map <leader>f :BLines<CR>
+map <leader>F :Lines<CR>
+map <leader>b :Buffers<CR>
+map <Leader>H :Helptags!<CR>
+map <Leader>: :History:<CR>
+map <Leader>/ :History/<CR>
+
+" vimtex mappings
+autocmd FileType tex map I :LLPStartPreview<CR>
+
 " auto expand brackets
-inoremap ( ()<Esc>:call BC_AddChar(")")<CR>i
-inoremap { {<CR>}<Esc>:call BC_AddChar("}")<CR><Esc>kA<CR>
-inoremap [ []<Esc>:call BC_AddChar("]")<CR>i
+inoremap (<CR> ()<Esc>:call BC_AddChar(")")<CR>i
+inoremap {<CR> {<CR>}<Esc>:call BC_AddChar("}")<CR><Esc>kA<CR>
+inoremap [<CR> []<Esc>:call BC_AddChar("]")<CR>i
 " jump out of parenthesis
 inoremap <C-j> <Esc>:call search(BC_GetChar(), "W")<CR>a
 " storing brackets
@@ -101,23 +141,6 @@ function! BC_GetChar()
  return l:char
 endfunction
 
-" Double esc to disable hlsearch
-nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
-
-" map fzf
-map <leader>p :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR> " :Files
-map <leader>f :BLines<CR>
-map <leader>F :Lines<CR>
-map <leader>b :Buffers<CR>
-map <Leader>H :Helptags!<CR>
-map <Leader>C :Commands<CR>
-map <Leader>: :History:<CR>
-map <Leader>/ :History/<CR>
-map <Leader>M :Maps<CR>
-map <Leader>s :Filetypes<CR>
-
-" vimtex mappings
-autocmd FileType tex map I :LLPStartPreview<CR>
 
 " Files + devicons -> https://coreyja.com/blog/2018/11/17/vim-fzf-with-devicons.html
 function! Fzf_files_with_dev_icons(command)

@@ -5,12 +5,12 @@
 [[ $- != *i* ]] && return
 
 # set vim as standard editor
-VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR 
 
 export PATH=$PATH:~/bin
 export PATH="$HOME/.cargo/bin:$PATH"
+export EDITOR=nvim
 export BROWSER=firefox
-export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 # unlimited bash history
 export HISTSIZE= 
 export HISTFILESIZE=
@@ -19,15 +19,15 @@ export HISTFILESIZE=
 alias la='ls -a'
 alias shutdown='shutdown now'
 alias suspend='systemctl suspend'
-# git dots
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias vim='nvim'
 
 source ~/bin/extract
 source ~/bin/fuzzy
 
 # fzf with fd for super fast fuzzuy searching
 # export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude ".git"'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_COMMAND='fd --hidden --type f --exclude ".git"'
 export FZF_ALT_C_COMMAND='fd --hidden --type d'
 # export FZF_DEFAULT_OPTS='--ansi'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.mozilla,*cache*,*Cache*,.node*,.electron*,.local,.steam,.cache,.git,Steam,Music,Videos}" 2> /dev/null'
