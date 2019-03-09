@@ -33,12 +33,11 @@ alias mkd='mkdir -pv'
 source ~/bin/extract
 source ~/bin/fuzzy
 
-# fzf with fd for super fast fuzzuy searching
-# export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude ".git"'
+# fzf with fd for super fast fuzzy searching
+export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude ".git"'
 # export FZF_DEFAULT_OPTS='--ansi'
 export FZF_CTRL_T_COMMAND='fd --hidden --type f --exclude ".git"'
-export FZF_ALT_C_COMMAND='fd --hidden --type d'
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.mozilla,*cache*,*Cache*,.node*,.electron*,.local,.steam,.cache,.git,Steam,Music,Videos}" 2> /dev/null'
+export FZF_ALT_C_COMMAND='fd --hidden --type d --exclude ".git"'
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

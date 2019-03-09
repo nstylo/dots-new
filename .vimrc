@@ -17,6 +17,9 @@ let vimtex_compiler_progname='nvr'
 filetype plugin on
 syntax on
 
+" enable scroll
+set mouse=a
+
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -31,6 +34,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'markonm/traces.vim'
 call plug#end()
 
 " :Man to open man pages
@@ -114,7 +118,8 @@ let g:fzf_buffers_jump = 1
 
 " map fzf
 " TODO: use ctrl for fzf 
-map <leader>p :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND)<CR>
+map <leader>p :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 0)<CR>
+map <leader>P :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 1)<CR>
 map <leader>f :BLines<CR>
 map <leader>F :Lines<CR>
 map <leader>b :Buffers<CR>
@@ -149,16 +154,25 @@ endfunction
 
 
 " Files + devicons -> https://coreyja.com/blog/2018/11/17/vim-fzf-with-devicons.html
-function! Fzf_files_with_dev_icons(command)
+function! Fzf_files_with_dev_icons(command, root)
   let l:fzf_files_options = '--preview "bat --color always --style numbers {2..} | head -'.&lines.'"'
    function! s:edit_devicon_prepended_file(item)
     let l:file_path = a:item[4:-1]
     execute 'silent e' l:file_path
   endfunction
+  if a:root == 0
    call fzf#run({
         \ 'source': a:command.' | devicon-lookup',
         \ 'sink':   function('s:edit_devicon_prepended_file'),
         \ 'options': '-m ' . l:fzf_files_options,
         \ 'down':    '40%',
         \ 'dir': "~"})
+   else
+    call fzf#run({
+        \ 'source': a:command.' | devicon-lookup',
+        \ 'sink':   function('s:edit_devicon_prepended_file'),
+        \ 'options': '-m ' . l:fzf_files_options,
+        \ 'down':    '40%',
+        \ 'dir': "/"})
+    endif
 endfunction
