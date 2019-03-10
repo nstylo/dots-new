@@ -16,9 +16,12 @@ export PATH=$HOME/bin/flac2mp3:$PATH
 export EDITOR=nvim
 export BROWSER=firefox
 export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+
 # unlimited bash history
 export HISTSIZE= 
 export HISTFILESIZE=
+# avoid duplicate entries
+HISTCONTROL="erasedups:ignoreboth"
 
 # custom alias
 alias la='ls -a'
@@ -32,6 +35,7 @@ alias mkd='mkdir -pv'
 
 source ~/bin/extract
 source ~/bin/fuzzy
+source ~/.bash_prompt
 
 # fzf with fd for super fast fuzzy searching
 export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude ".git"'
@@ -48,4 +52,4 @@ parse_git_branch() {
 }
 
 # PS1
-export PS1="\[$(tput bold)\]\[\033[38;5;203m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \W\$(parse_git_branch)\[\033[00m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;203m\]\\$>\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+# export PS1="\[$(tput bold)\]\[\033[38;5;203m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \W\$(parse_git_branch)\[\033[00m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;203m\]\\$>\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"

@@ -13,7 +13,6 @@ set hlsearch
 set incsearch
 set scrolloff=999
 let g:gruvbox_italic=1
-let vimtex_compiler_progname='nvr'
 filetype plugin on
 syntax on
 
@@ -51,8 +50,9 @@ let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 
-" set live preview viewer
+" vimtex options
 let g:livepreview_previewer = 'zathura'
+let g:vimtex_compiler_progname='nvr'
 
 " set gitgutter update time to 100ms
 set updatetime=100
@@ -95,6 +95,7 @@ map <leader>v :vnew<CR>
 map <M-l> :bn<CR>
 map <M-h> :bp<CR>
 map <M-d> :bd<CR>
+map <M-n> :enew<CR>
 map <M-Up> :res +5<CR>
 map <M-Down> :res -5<CR>
 map <M-Right> :vertical res +5<CR>
@@ -129,7 +130,7 @@ map <Leader>: :History:<CR>
 map <Leader>/ :History/<CR>
 
 " vimtex mappings
-autocmd FileType tex map I :LLPStartPreview<CR>
+autocmd FileType tex map <C-i> :LLPStartPreview<CR>
 
 " auto expand brackets
 inoremap (<CR> ()<Esc>:call BC_AddChar(")")<CR>i
