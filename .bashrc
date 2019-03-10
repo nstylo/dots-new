@@ -24,7 +24,10 @@ export HISTFILESIZE=
 HISTCONTROL="erasedups:ignoreboth"
 
 # custom alias
-alias la='ls -a'
+alias la='ls -a --color=auto'
+alias ls='ls --color=auto'
+alias ll='ls -al --color=auto'
+alias grep='grep --color=auto'
 alias shutdown='shutdown now'
 alias suspend='systemctl suspend'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

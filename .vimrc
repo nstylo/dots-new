@@ -106,8 +106,8 @@ nnoremap <Leader>j ddp
 nnoremap <Leader>k ddkP
 
 " indent lines
-map <leader>l >><CR>
-map <leader>h <<<CR>
+map <leader>l >>
+map <leader>h <<
 
 " substitute makro 
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
