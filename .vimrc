@@ -15,6 +15,7 @@ set scrolloff=999
 let g:gruvbox_italic=1
 filetype plugin on
 syntax on
+set t_Co=256
 
 " enable scroll
 set mouse=a
@@ -40,9 +41,10 @@ call plug#end()
 runtime ftplugin/man.vim
 
 " setup gruvbox
-colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_termcolors = 256
 set background=dark
-let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 " setup airline
 let g:airline#extensions#tabline#enabled = 1
