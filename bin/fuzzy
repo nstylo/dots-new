@@ -1,12 +1,12 @@
 #!/bin/bash
-#
+
 # Open file in vim through fzf
 fv() {
     local -r file="$(fzf)"
     [ -n "$file" ] && ${EDITOR:-vim} "$file"
 }
 
-
+# kill process using fuzzy finder
 fkill() {
     local pid 
     if [ "$UID" != "0" ]; then

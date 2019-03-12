@@ -17,7 +17,7 @@ bindsym Print exec "/home/niklas/bin/capture.sh -l"
 bindsym $mod+Print exec "/home/niklas/bin/capture.sh"
 
 # toogle touchpad
-bindsym $mod+Shift+t exec /usr/local/bin/touchpad_toggle.sh 
+bindsym $mod+Shift+t exec "/home/niklas/bin/touchpad_toggle.sh" 
 
 # Hide borders
 hide_edge_borders none
