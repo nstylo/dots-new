@@ -39,6 +39,7 @@ alias mkd='mkdir -pv'
 source ~/bin/extract
 source ~/bin/fuzzy
 source ~/.bash_prompt
+source ~/.profile
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 # fzf with fd for super fast fuzzy searching
