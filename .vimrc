@@ -21,20 +21,32 @@ set t_Co=256
 set mouse=a
 
 call plug#begin('~/.vim/plugged')
+" aesthetics
 Plug 'morhetz/gruvbox'
+Plug 'chrisbra/Colorizer'
+Plug 'markonm/traces.vim'
+" airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+" fuzzy finding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" latex
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+" linting and autocomplete
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'
+" git
 Plug 'airblade/vim-gitgutter'
-Plug 'ryanoasis/vim-devicons'
+" formatting
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
+" nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'markonm/traces.vim'
+" vim-repeat for vim-surround
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 " :Man to open man pages
@@ -59,6 +71,9 @@ let g:vimtex_compiler_progname='nvr'
 " set gitgutter update time to 100ms
 set updatetime=100
 
+" buffers jump to existing window
+let g:fzf_buffers_jump = 1
+
 " vimtex autocompletion with ycm
 if !exists('g:ycm_semantic_triggers')
 	let g:ycm_semantic_triggers = {}
@@ -75,7 +90,7 @@ let g:NERDDefaultAlign = 'left'
 " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_java = 1
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
@@ -114,13 +129,10 @@ map <leader>h <<
 " substitute makro 
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
-" Double esc to disable hlsearch
+" double esc to disable hlsearch
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
-let g:fzf_buffers_jump = 1
-
 " map fzf
-" TODO: use ctrl for fzf 
 map <leader>p :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 0)<CR>
 map <leader>P :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 1)<CR>
 map <leader>f :BLines<CR>
@@ -133,6 +145,9 @@ map <Leader>/ :History/<CR>
 
 " vimtex mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
+
+" nerdtree toggle
+map <C-n> :NERDTreeToggle<CR>
 
 " auto expand brackets
 inoremap (<CR> ()<Esc>:call BC_AddChar(")")<CR>i
@@ -154,7 +169,6 @@ function! BC_GetChar()
  let b:robstack = strpart(b:robstack, 0, strlen(b:robstack)-1)
  return l:char
 endfunction
-
 
 " Files + devicons -> https://coreyja.com/blog/2018/11/17/vim-fzf-with-devicons.html
 function! Fzf_files_with_dev_icons(command, root)

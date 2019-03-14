@@ -22,8 +22,8 @@ background = #222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #a89984
-foreground-alt = #555
-primary = #ffb52a
+foreground-alt = #458588
+primary = #d79921
 secondary = #e60053
 alert = #bd2c40
 
@@ -104,7 +104,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#689d6a}%mountpoint%%{F-}: %free%
+label-mounted = %{F#458588}%mountpoint%%{F-}: %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 

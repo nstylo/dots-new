@@ -38,9 +38,9 @@ alias mkd='mkdir -pv'
 
 source ~/bin/extract
 source ~/bin/fuzzy
-source ~/.bash_prompt
 source ~/.profile
-source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+# source ~/.bash_prompt
+# source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 # fzf with fd for super fast fuzzy searching
 export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude ".git"'
@@ -53,8 +53,13 @@ export FZF_ALT_C_COMMAND='fd --hidden --type d --exclude ".git"'
 
 # show git branch on bash-prompt
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (git:\1)/'
 }
 
 # PS1
-# export PS1="\[$(tput bold)\]\[\033[38;5;203m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \W\$(parse_git_branch)\[\033[00m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;203m\]\\$>\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+BLUE="\[\033[38;5;66m\]"
+LIGHT_BLUE="\[\033[38;5;109m\]"
+YELLOW="\[\033[38;5;172m\]"
+
+PS1=""
+PS1+="${BLUE}[\u@\h] ${LIGHT_BLUE}\w${YELLOW}\$(parse_git_branch)\\n\[$(tput sgr0)\]$ "
