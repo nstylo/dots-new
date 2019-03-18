@@ -1,5 +1,6 @@
 [user]
     email = niklas@stylianou.info
+	name = nstylo
 [merge]
     tool = vimdiff
 [mergetool]

@@ -65,8 +65,9 @@ let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 
 " vimtex options
+let g:vimtex_view_method = 'zathura'
 let g:livepreview_previewer = 'zathura'
-let g:vimtex_compiler_progname='nvr'
+let g:vimtex_compiler_progname = 'nvr'
 
 " set gitgutter update time to 100ms
 set updatetime=100
