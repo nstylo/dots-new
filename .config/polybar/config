@@ -22,13 +22,13 @@ background = #222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #a89984
-foreground-alt = #458588
+foreground-alt = #a89984
 primary = #d79921
 secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-monitor = DVI-I-1
+monitor = DVI-I-0
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -102,9 +102,10 @@ label-indicator-background = ${colors.secondary}
 type = internal/fs
 interval = 25
 
-mount-0 = /
+mount-0 = /home
+mount-1 = /
 
-label-mounted = %{F#458588}%mountpoint%%{F-}: %free%
+label-mounted = %{F#a89984}%mountpoint%%{F-}: %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 

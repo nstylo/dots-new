@@ -33,7 +33,7 @@ alias suspend='systemctl suspend'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vim='nvim'
 alias pac='sudo pacman'
-alias r='ranger'
+alias r='ranger' 
 alias mkd='mkdir -pv'
 
 source ~/bin/extract

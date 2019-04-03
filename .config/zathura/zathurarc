@@ -8,3 +8,5 @@ set render-loading false
 map i recolor
 map p print
 map r reload
+
+set selection-clipboard clipboard
