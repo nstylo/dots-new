@@ -98,8 +98,8 @@ URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
 URxvt.perl-ext-common:             ...,clipboard,resize-font
 URxvt.keysym.Control-c:               perl:clipboard:copy
-URxvt.keysym.Control-v:                 perl:clipboard:paste
-URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
+URxvt.keysym.Control-v:               perl:clipboard:paste
+! URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
 ! URxvt*termName:                   string
 ! URxvt*geometry:                   geometry
 ! URxvt*chdir:                      string

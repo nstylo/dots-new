@@ -4,9 +4,6 @@
 
 [[ $- != *i* ]] && return
 
-# enable vi mode
-# set -o vi
-
 # cd on merely specifying path
 shopt -s autocd
 

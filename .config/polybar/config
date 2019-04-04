@@ -102,6 +102,8 @@ label-indicator-background = ${colors.secondary}
 type = internal/fs
 interval = 25
 
+mount-2 = /home/niklas/Music
+mount-3 = /home/niklas/Bulk
 mount-0 = /home
 mount-1 = /
 
