@@ -102,6 +102,9 @@ let g:NERDToggleCheckAllLines = 1
 " assign mapleader
 let mapleader=" "
 
+" copy to clipboard
+vmap <Leader>y "+y
+
 " easy buffer movement 
 map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
@@ -139,7 +142,6 @@ map <leader>P :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 1)<CR>
 map <leader>f :BLines<CR>
 map <leader>F :Lines<CR>
 map <leader>b :Buffers<CR>
-map <leader>s :BCommits<CR>
 map <Leader>H :Helptags!<CR>
 map <Leader>: :History:<CR>
 map <Leader>/ :History/<CR>

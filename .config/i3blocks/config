@@ -1,0 +1,37 @@
+separator_block_width=20
+color=#ebdbb2
+
+[volume]
+command=/home/niklas/.config/i3blocks/scripts/volume
+interval=5
+signal=10
+
+[disk-root]
+label=/:
+command=df -h / | tail -1 | awk '{print $4}'
+interval=30
+
+[disk-home]
+label=~:
+command=df -h ~ | tail -1 | awk '{print $4}'
+interval=30
+
+[disk-Music]
+label=M:
+command=df -h ~/Music | tail -1 | awk '{print $4}'
+interval=30
+
+[disk-Bulk]
+label=B:
+command=df -h ~/Bulk | tail -1 | awk '{print $4}'
+interval=30
+
+[time]
+label=:
+command=date '+%H:%M'
+interval=5
+
+[date]
+label=:
+command=date '+%a %d-%m-%Y '
+interval=60

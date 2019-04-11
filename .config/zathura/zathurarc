@@ -4,6 +4,7 @@ set page-padding 1
 
 set adjust-open "width"
 set render-loading false
+set guioptions "sv"
 
 map i recolor
 map p print

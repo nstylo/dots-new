@@ -21,9 +21,9 @@ export HISTFILESIZE=
 HISTCONTROL="erasedups:ignoreboth"
 
 # custom alias
-alias la='ls -a --color=auto'
-alias ls='ls --color=auto'
-alias ll='ls -al --color=auto'
+alias la='ls --group-directories-first -a  --color=auto'
+alias ls='ls --group-directories-first --color=auto'
+alias ll='ls --group-directories-first -al --color=auto'
 alias grep='grep --color=auto'
 alias shutdown='shutdown now'
 alias suspend='systemctl suspend'
@@ -32,6 +32,8 @@ alias vim='nvim'
 alias pac='sudo pacman'
 alias r='ranger' 
 alias mkd='mkdir -pv'
+alias cp='cp -i'
+alias df='df -h'
 
 source ~/bin/extract
 source ~/bin/fuzzy
@@ -40,7 +42,7 @@ source ~/.profile
 # source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 # fzf with fd for super fast fuzzy searching
-export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude ".git"'
+export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude={.git,.cache,Music}'
 # export FZF_DEFAULT_OPTS='--ansi'
 export FZF_CTRL_T_COMMAND='fd --hidden --type f --exclude ".git"'
 export FZF_ALT_C_COMMAND='fd --hidden --type d --exclude ".git"'

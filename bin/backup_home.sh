@@ -7,6 +7,7 @@ src="/home"
 dest="/mnt/BACKUP"
 dev="/dev/sdb3"
 
+echo $(date)
 echo "##################################"
 echo "Start backup ${src} to ${dest}"
 echo "##################################"
@@ -56,7 +57,7 @@ mount_dev
 # if mounting was successful, sync
 if [ $? == 0 ]; then
     echo "syncing ..."
-    rsync -aHhvx --delete --delete-excluded --numeric-ids --exclude='lost+found' ${src} ${dest}
+    rsync -aHhvx --delete --delete-excluded --numeric-ids --exclude='lost+found' --exclude='Downloads' --exclude='Music' --exclude='Desktop' ${src} ${dest}
     echo ""
     echo "unmounting ..."
     # unmount the device !!

@@ -37,7 +37,6 @@ bindsym $mod+x exec --no-startup-id "rofi -show window"
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # exec --no-startup-id pulseaudio --start
 
@@ -162,16 +161,13 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Skype"] $ws5
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [title="About Pale Moon"] floating enable
+for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-# for_window [class="Clementine"] move scratchpad, resize set 1536 864, scratchpad show, move position center 
+for_window [class="Mtpaint"] floating enable
+for_window [class="Lollypop"] border pixel 3    # Lollypop does not show border otherwise
 
 # switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
+# for_window [urgent=latest] focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -227,6 +223,7 @@ mode "resize" {
 exec --no-startup-id redshift-gtk -t 6500:3500 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id clipit
+exec --no-startup-id udiskie --tray --use-udisks2
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -261,7 +258,9 @@ set_from_resource $term_color15    color15
 
 # set polybar as standard statusline 
 bar {
-    i3bar_command $HOME/.config/polybar/launch.sh
+    position top
+    status_command i3blocks
+    font pango:Source Code Pro Medium 11
 }
 
 # hide/unhide bar
@@ -307,8 +306,8 @@ mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
         bindsym f      gaps inner all set 0, gaps outer all set 0
-	bindsym n      gaps inner all set 14, gaps outer all set -2
-	bindsym Return mode "default"
+        bindsym n      gaps inner all set 14, gaps outer all set -2
+        bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
