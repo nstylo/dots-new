@@ -8,8 +8,9 @@
 shopt -s autocd
 
 export PATH=$PATH:~/bin
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH=$HOME/bin/flac2mp3:$PATH
+export PATH=$PATH:~/.config/i3blocks/scripts
+export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:~/bin/flac2mp3
 export EDITOR=nvim
 export BROWSER=firefox
 export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""

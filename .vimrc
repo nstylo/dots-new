@@ -105,6 +105,13 @@ let mapleader=" "
 " copy to clipboard
 vmap <Leader>y "+y
 
+" paste from yank register
+nnoremap p "0p
+vnoremap p "0p
+" paste from default register
+nnoremap P ""p
+vnoremap P ""p
+
 " easy buffer movement 
 map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
