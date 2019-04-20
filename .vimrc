@@ -144,8 +144,8 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
-map <leader>p :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 0)<CR>
-map <leader>P :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 1)<CR>
+map <M-p> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 0)<CR>
+map <M-P> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 1)<CR>
 map <leader>f :BLines<CR>
 map <leader>F :Lines<CR>
 map <leader>b :Buffers<CR>
@@ -161,7 +161,10 @@ map <C-n> :NERDTreeToggle<CR>
 
 " auto expand brackets
 inoremap (<CR> ()<Esc>:call BC_AddChar(")")<CR>i
-inoremap {<CR> {<CR>}<Esc>:call BC_AddChar("}")<CR><Esc>kA<CR>
+inoremap {<CR> {}<Esc>:call BC_AddChar("}")<CR>i
+inoremap "<CR> ""<Esc>:call BC_AddChar("\"}")<CR>i
+inoremap '<CR> ''<Esc>:call BC_AddChar("\'}")<CR>i
+" inoremap {<CR> {<CR>}<Esc>:call BC_AddChar("}")<CR><Esc>kA<CR>
 inoremap [<CR> []<Esc>:call BC_AddChar("]")<CR>i
 " jump out of parenthesis
 inoremap <C-j> <Esc>:call search(BC_GetChar(), "W")<CR>a
