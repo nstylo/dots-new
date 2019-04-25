@@ -35,15 +35,16 @@ label=~<span color='#586e75'>:</span>
 command=df -h ~ | tail -1 | awk '{print $4}'
 interval=30
 
-[disk-Music]
-full_text=abs
-label=~<span color='#586e75'>:</span>
-command=df -h ~/Music | tail -1 | awk '{print $4} '
+[disk-var]
+label=v<span color='#586e75'>:</span>
+command=df -h /var | tail -1 | awk '{print $4}'
 interval=30
 
-[disk-Bulk]
-label=B<span color='#586e75'>:</span>
-command=df -h ~/Bulk | tail -1 | awk '{print $4}'
+[separator]
+color=#586e75
+
+[battery]
+command=/home/niklas/.config/i3blocks/scripts/battery
 interval=30
 
 [separator]
