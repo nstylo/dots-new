@@ -11,7 +11,9 @@ set autoindent
 set smartcase
 set hlsearch
 set incsearch
-set scrolloff=999
+set scrolloff=10
+set hidden
+set autoread
 let g:gruvbox_italic=1
 filetype plugin on
 syntax on
@@ -61,6 +63,7 @@ colorscheme gruvbox
 " setup airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 
@@ -103,7 +106,7 @@ let g:NERDToggleCheckAllLines = 1
 let mapleader=" "
 
 " copy to clipboard
-vmap <Leader>y "+y
+vnoremap Y "+y
 
 " paste from yank register
 nnoremap p "0p

@@ -105,7 +105,7 @@ URxvt.keysym.Control-v:             perl:clipboard:paste
 ! URxvt.keysym.C-S-Up:                perl:font-size:incglobal
 ! URxvt.keysym.C-S-Down:              perl:font-size:decglobal
 URxvt.keysym.C-equal:               perl:font-size:reset
-URxvt.keysym.C-slash:               perl:font-size:show
+! URxvt.keysym.C-slash:               perl:font-size:show
 URxvt.font-size.step:               2
 ! URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
 ! URxvt*termName:                   string

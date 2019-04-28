@@ -1,6 +1,9 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+# Set speed of keyboard
+exec xset r rate 200 20
+
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 3 
 new_float normal
@@ -48,7 +51,6 @@ bindsym $mod+x exec --no-startup-id "rofi -show window"
 bindsym $mod+z exec --no-startup-id morc_menu
 
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio --start
 
 # Start lockscreen
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l blur
@@ -234,6 +236,8 @@ exec --no-startup-id redshift-gtk -t 6500:3500
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id clipit
 exec --no-startup-id udiskie --tray --use-udisks2
+exec --no-startup-id nm-applet
+exec --no-startup-id pulseaudio --start
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

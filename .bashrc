@@ -4,8 +4,8 @@
 
 [[ $- != *i* ]] && return
 
-# cd on merely specifying path
-shopt -s autocd
+# clear console
+bind -x $'"\C-l":clear;'
 
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.config/i3blocks/scripts
