@@ -47,6 +47,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'majutsushi/tagbar'
 " vim-repeat for vim-surround
 Plug 'tpope/vim-repeat'
 call plug#end()
@@ -161,6 +162,8 @@ autocmd FileType tex map <C-i> :LLPStartPreview<CR>
 
 " nerdtree toggle
 map <C-n> :NERDTreeToggle<CR>
+" tagbar toggle
+map <leader>t :TagbarToggle<CR>
 
 " auto expand brackets
 inoremap (<CR> ()<Esc>:call BC_AddChar(")")<CR>i
@@ -174,7 +177,7 @@ inoremap <C-j> <Esc>:call search(BC_GetChar(), "W")<CR>a
 " storing brackets
 function! BC_AddChar(schar)
  if exists("b:robstack")
- let b:robstack = b:robstack . a:schar
+    let b:robstack = b:robstack . a:schar
  else
  let b:robstack = a:schar
  endif
@@ -182,7 +185,7 @@ endfunction
 " retrieving brackets
 function! BC_GetChar()
  let l:char = b:robstack[strlen(b:robstack)-1]
- let b:robstack = strpart(b:robstack, 0, strlen(b:robstack)-1)
+     let b:robstack = strpart(b:robstack, 0, strlen(b:robstack)-1)
  return l:char
 endfunction
 
@@ -190,7 +193,7 @@ endfunction
 function! Fzf_files_with_dev_icons(command, root)
   let l:fzf_files_options = '--preview "bat --color always --style numbers {2..} | head -'.&lines.'"'
    function! s:edit_devicon_prepended_file(item)
-    let l:file_path = a:item[4:-1]
+        let l:file_path = a:item[4:-1]
     execute 'silent e' l:file_path
   endfunction
   if a:root == 0
