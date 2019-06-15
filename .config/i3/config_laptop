@@ -9,14 +9,20 @@ new_window pixel 3
 new_float normal
 
 # bind volume control
-bindsym $mod+Down exec --no-startup-id pulsemixer --change-volume -5
-bindsym $mod+Up exec --no-startup-id pulsemixer --change-volume +5
-bindsym $mod+m exec --no-startup-id pulsemixer --toggle-mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5
+bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5
+bindsym XF86AudioMute exec --no-startup-id pulsemixer --toggle-mute
+
+# bind brightness control
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # bind player control
 bindsym $mod+Left exec --no-startup-id playerctl --player=Lollypop previous
 bindsym $mod+Right exec --no-startup-id playerctl --player=Lollypop next
 bindsym $mod+p exec --no-startup-id playerctl --player=Lollypop play-pause
+bindsym $mod+period exec --no-startup-id playerctl --player=Lollypop position 5+
+bindsym $mod+comma exec --no-startup-id playerctl --player=Lollypop position 5-
 
 # Screenshots
 bindsym Print exec "/home/niklas/bin/capture.sh -l"
@@ -46,6 +52,9 @@ bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,run -show combi -modi
 
 # rofi for open applications
 bindsym $mod+x exec --no-startup-id "rofi -show window" 
+
+# rofi for setting monitor layout
+bindsym $mod+m exec "/home/niklas/bin/monitor_layout.sh"
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -286,9 +295,6 @@ bar {
         urgent_workspace    #fb4934 #fb4934 #fbf1c7
     }
 }
-
-# hide/unhide bar
-# bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border

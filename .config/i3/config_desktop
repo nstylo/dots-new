@@ -17,6 +17,8 @@ bindsym $mod+m exec --no-startup-id pulsemixer --toggle-mute
 bindsym $mod+Left exec --no-startup-id playerctl --player=Lollypop previous
 bindsym $mod+Right exec --no-startup-id playerctl --player=Lollypop next
 bindsym $mod+p exec --no-startup-id playerctl --player=Lollypop play-pause
+bindsym $mod+period exec --no-startup-id playerctl --player=Lollypop position 5+
+bindsym $mod+comma exec --no-startup-id playerctl --player=Lollypop position 5-
 
 # Screenshots
 bindsym Print exec "/home/niklas/bin/capture.sh -l"
