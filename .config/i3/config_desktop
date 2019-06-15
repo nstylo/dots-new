@@ -51,7 +51,6 @@ bindsym $mod+x exec --no-startup-id "rofi -show window"
 bindsym $mod+z exec --no-startup-id morc_menu
 
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio --start
 
 # Start lockscreen
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l blur
@@ -237,6 +236,7 @@ exec --no-startup-id redshift-gtk -t 6500:3500
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id clipit
 exec --no-startup-id udiskie --tray --use-udisks2
+exec --no-startup-id start-pulseaudio-x11
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
