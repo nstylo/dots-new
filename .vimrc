@@ -1,7 +1,7 @@
-set nocompatible 
+set nocompatible
 set number relativenumber
-set showcmd 
-set tabstop=4 
+set showcmd
+set tabstop=4
 set expandtab
 set shiftwidth=4
 set ignorecase
@@ -14,6 +14,10 @@ set incsearch
 set scrolloff=10
 set hidden
 set autoread
+" show trailing whitespaces
+set listchars=tab:>·,trail:$,extends:>,precedes:<
+ " Shows invisible characters
+set list
 let g:gruvbox_italic=1
 filetype plugin on
 syntax on
@@ -40,6 +44,10 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " linting and autocomplete
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'
+" snippets
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+" Plug 'ervandew/supertab'
 " git
 Plug 'airblade/vim-gitgutter'
 " formatting
@@ -71,7 +79,11 @@ let g:airline_powerline_fonts = 1
 " vimtex options
 let g:vimtex_view_method = 'zathura'
 let g:livepreview_previewer = 'zathura'
-let g:vimtex_compiler_progname = 'nvr'
+let g:vimex_compiler_progname = 'nvr'
+let g:tex_flavor = "latex"
+let g:vimtex_quickfix_mode = 0
+" set conceallevel=1
+" let g:tex_conceal = 'abdmg'
 
 " set gitgutter update time to 100ms
 set updatetime=100
@@ -84,6 +96,17 @@ if !exists('g:ycm_semantic_triggers')
 	let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-j>'
+
+" snippet bindings
+let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/snippets']
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " nerdcommenter
 " Add spaces after comment delimiters by default
@@ -116,7 +139,7 @@ vnoremap p "0p
 nnoremap P ""p
 vnoremap P ""p
 
-" easy buffer movement 
+" easy buffer movement
 map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-l> :wincmd l<CR>
@@ -141,7 +164,7 @@ nnoremap <Leader>k ddkP
 map <leader>l >>
 map <leader>h <<
 
-" substitute makro 
+" substitute makro
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
 " double esc to disable hlsearch
@@ -165,6 +188,10 @@ map <C-n> :NERDTreeToggle<CR>
 " tagbar toggle
 map <leader>t :TagbarToggle<CR>
 
+" remap nerdcomment
+nnoremap <C-_> :call NERDComment(0, "toggle")<CR>
+vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
+
 " auto expand brackets
 inoremap (<CR> ()<Esc>:call BC_AddChar(")")<CR>i
 inoremap {<CR> {}<Esc>:call BC_AddChar("}")<CR>i
@@ -172,8 +199,7 @@ inoremap "<CR> ""<Esc>:call BC_AddChar("\"}")<CR>i
 inoremap '<CR> ''<Esc>:call BC_AddChar("\'}")<CR>i
 " inoremap {<CR> {<CR>}<Esc>:call BC_AddChar("}")<CR><Esc>kA<CR>
 inoremap [<CR> []<Esc>:call BC_AddChar("]")<CR>i
-" jump out of parenthesis
-inoremap <C-j> <Esc>:call search(BC_GetChar(), "W")<CR>a
+
 " storing brackets
 function! BC_AddChar(schar)
  if exists("b:robstack")
@@ -182,12 +208,16 @@ function! BC_AddChar(schar)
  let b:robstack = a:schar
  endif
 endfunction
+
+" jump out of parenthesis
+" inoremap <C-j> <Esc>:call search(BC_GetChar(), "W")<CR>a
+
 " retrieving brackets
-function! BC_GetChar()
- let l:char = b:robstack[strlen(b:robstack)-1]
-     let b:robstack = strpart(b:robstack, 0, strlen(b:robstack)-1)
- return l:char
-endfunction
+" function! BC_GetChar()
+"  let l:char = b:robstack[strlen(b:robstack)-1]
+"      let b:robstack = strpart(b:robstack, 0, strlen(b:robstack)-1)
+"  return l:char
+" endfunction
 
 " Files + devicons -> https://coreyja.com/blog/2018/11/17/vim-fzf-with-devicons.html
 function! Fzf_files_with_dev_icons(command, root)
