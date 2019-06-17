@@ -186,6 +186,10 @@ for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Mtpaint"] floating enable, resize set 900 900, move position center
 for_window [class="Lollypop"] border pixel 3    # Lollypop does not show border otherwise
+for_window [title="fileman"] move scratchpad, scratchpad show, resize set 1325 600, sticky enable, move position center
+
+# kill all instances of 'fileman' and start a new instance as scratchpad
+bindsym $mod+u [title="fileman"] kill, exec --no-startup-id urxvt --title fileman -e ranger
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
