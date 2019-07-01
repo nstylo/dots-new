@@ -47,17 +47,16 @@ Plug 'Valloric/YouCompleteMe'
 " snippets
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
-" Plug 'ervandew/supertab'
 " git
 Plug 'airblade/vim-gitgutter'
 " formatting
-Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
-" vim-repeat for vim-surround
-Plug 'tpope/vim-repeat'
+" web development
+Plug 'sheerun/vim-polyglot'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 " :Man to open man pages
@@ -125,6 +124,10 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
+" run prettier before save
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " assign mapleader
 let mapleader=" "
