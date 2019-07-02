@@ -1,11 +1,14 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+# Set default terminal
+set $term urxvt
+
 # Set speed of keyboard
 exec xset r rate 200 20
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 3 
+new_window pixel 3
 new_float normal
 
 # bind volume control
@@ -48,9 +51,6 @@ bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,run -show combi -modi
 
 # rofi for open applications
 bindsym $mod+x exec --no-startup-id "rofi -show window"
-
-# launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
 
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
@@ -179,10 +179,10 @@ for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Mtpaint"] floating enable, resize set 900 900, move position center
 for_window [class="Lollypop"] border pixel 3    # Lollypop does not show border otherwise
-for_window [title="fileman"] floating enable, resize set 1325 600, move position center, move scratchpad, sticky enable
+for_window [instance="dropdown_term"] floating enable, resize set 1325 600, move position center, move scratchpad, sticky enable
 
-# kill all instances of 'fileman' and start a new instance as scratchpad
-bindsym $mod+u [title="fileman"] scratchpad show
+# kill all instances of 'dropdown_term' and start a new instance as scratchpad
+bindsym $mod+u [instance="dropdown_term"] scratchpad show, move position center
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
@@ -243,7 +243,9 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id clipit
 exec --no-startup-id udiskie --tray --use-udisks2
 exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id urxvt --title fileman -e ranger
+
+exec [instance="dropdown_term"] kill        # may be temporary
+exec_always --no-startup-id urxvt -name dropdown_term
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -251,7 +253,7 @@ exec --no-startup-id urxvt --title fileman -e ranger
 # Change the variable name at the place you want to match the color
 # of your terminal like this:
 # [example]
-# If you want your bar to have the same background color as your 
+# If you want your bar to have the same background color as your
 # terminal background change the line 362 from:
 # background #14191D
 # to:
