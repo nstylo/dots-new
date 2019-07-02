@@ -13,8 +13,10 @@ ask() {
 ask
 
 # install yarn
-yarn install
-# Install ESLInt with NPM
-yarn add eslint --save-dev
+yarn init
+# Install ESLInt with yarn
+yarn add -D eslint
+yarn add -D prettier-eslint
+yarn add -D prettier-eslint-cli
 # Create an initial configuration file.
 ./node_modules/.bin/eslint --init

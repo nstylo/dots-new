@@ -51,6 +51,7 @@ Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 " formatting
 Plug 'scrooloose/nerdcommenter'
+Plug 'editorconfig/editorconfig-vim'
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
@@ -126,8 +127,20 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 " run prettier before save
-let g:prettier#autoformat = 0
+let g:prettier#autoformat = 1
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+" number of spaces per indentation level
+" Prettier default: 2
+let g:prettier#config#tab_width = 4
+
+" avoid|always
+" Prettier default: avoid
+let g:prettier#config#arrow_parens = 'always'
+
+" use tabs over spaces
+" Prettier default: false
+let g:prettier#config#use_tabs = 'true'
 
 " assign mapleader
 let mapleader=" "
