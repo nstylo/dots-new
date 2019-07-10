@@ -293,9 +293,6 @@ bar {
     }
 }
 
-# hide/unhide bar
-# bindsym $mod+m bar mode toggle
-
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
   client.focused          #556064 #556064 #80FFF9 #ebdbb2  #928474

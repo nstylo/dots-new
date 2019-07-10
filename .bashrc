@@ -19,7 +19,7 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 export PATH=$PATH:$JAVA_HOME/bin
 
 # unlimited bash history
-export HISTSIZE= 
+export HISTSIZE=
 export HISTFILESIZE=
 # avoid duplicate entries
 HISTCONTROL="erasedups:ignoreboth"
@@ -34,7 +34,7 @@ alias suspend='systemctl suspend'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vim='nvim'
 alias pac='sudo pacman'
-alias r='ranger' 
+alias r='ranger'
 alias mkd='mkdir -pv'
 alias cp='cp -i'
 alias df='df -h'

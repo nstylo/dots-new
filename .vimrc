@@ -107,6 +107,7 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/snippets']
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+autocmd FileType javascript UltiSnipsAddFiletypes html
 
 " nerdcommenter
 " Add spaces after comment delimiters by default
