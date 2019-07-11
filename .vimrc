@@ -134,13 +134,13 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 " Prettier default: 2
 let g:prettier#config#tab_width = 4
 
-" avoid|always
-" Prettier default: avoid
-let g:prettier#config#arrow_parens = 'always'
+" " avoid|always
+" " Prettier default: avoid
+" let g:prettier#config#arrow_parens = 'always'
 
-" use tabs over spaces
-" Prettier default: false
-let g:prettier#config#use_tabs = 'true'
+" " use tabs over spaces
+" " Prettier default: false
+" let g:prettier#config#use_tabs = 'true'
 
 " assign mapleader
 let mapleader=" "

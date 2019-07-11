@@ -243,9 +243,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id clipit
 exec --no-startup-id udiskie --tray --use-udisks2
 exec --no-startup-id start-pulseaudio-x11
-
-exec [instance="dropdown_term"] kill        # may be temporary
-exec_always --no-startup-id urxvt -name dropdown_term
+exec --no-startup-id urxvt -name dropdown_term
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
