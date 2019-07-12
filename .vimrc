@@ -56,8 +56,10 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 " web development
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 " :Man to open man pages
@@ -142,6 +144,14 @@ let g:prettier#config#tab_width = 4
 " " use tabs over spaces
 " " Prettier default: false
 " let g:prettier#config#use_tabs = 'true'
+
+" let g:ale_fixers = {
+" \ 'javascript': ['eslint']
+" \ }
+" let g:ale_linters = {
+" \ 'javascript': ['eslint']
+" \ }
+let g:javascript_plugin_jsdoc = 1
 
 " assign mapleader
 let mapleader=" "
