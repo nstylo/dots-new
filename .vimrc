@@ -18,10 +18,8 @@ set autoread
 set listchars=tab:>·,trail:$,extends:>,precedes:<
  " Shows invisible characters
 set list
-let g:gruvbox_italic=1
 filetype plugin on
 syntax on
-set t_Co=256
 
 " enable scroll
 set mouse=a
@@ -66,8 +64,10 @@ call plug#end()
 runtime ftplugin/man.vim
 
 " setup gruvbox
+set termguicolors "sets to true colors
+let &t_ut=''
+let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark = 'medium'
-let g:gruvbox_termcolors = 256
 set background=dark
 colorscheme gruvbox
 
