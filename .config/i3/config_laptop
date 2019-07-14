@@ -8,8 +8,8 @@ set $term kitty
 exec xset r rate 200 20
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-# new_window pixel 3
-# new_float normal
+new_window pixel 3
+new_float normal
 
 # bind volume control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5
@@ -186,10 +186,10 @@ for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Mtpaint"] floating enable, resize set 900 900, move position center
 for_window [class="Lollypop"] border pixel 3    # Lollypop does not show border otherwise
-for_window [instance="dropdown_term"] move scratchpad, resize set 1325 600, move position center, sticky enable
+for_window [title="dropdown_term"] move scratchpad, resize set 1325 600, move position center, sticky enable
 
 # kill all instances of 'dropdown_term' and start a new instance as scratchpad
-bindsym $mod+u [instance="dropdown_term"] scratchpad show, move position center
+bindsym $mod+u [title="dropdown_term"] scratchpad show, move position center
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
@@ -251,7 +251,7 @@ exec --no-startup-id clipit
 exec --no-startup-id udiskie --tray --use-udisks2
 exec --no-startup-id nm-applet
 exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id urxvt -name dropdown_term
+exec --no-startup-id kitty --title dropdown_term
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

@@ -60,9 +60,10 @@ parse_git_branch() {
 }
 
 # PS1
-BLUE="\[\033[38;5;66m\]"
-LIGHT_BLUE="\[\033[38;5;109m\]"
-YELLOW="\[\033[38;5;172m\]"
+BLUE="\[\033[01;38;5;66m\]"
+LIGHT_BLUE="\[\033[01;38;5;109m\]"
+YELLOW="\[\033[01;38;5;172m\]"
 
 PS1=""
-PS1+="${BLUE}[\u@\h] ${LIGHT_BLUE}\w${YELLOW}\$(parse_git_branch)\\n\[$(tput sgr0)\]$ "
+PS1+="${BLUE}[\u@\h] ${LIGHT_BLUE}\w${YELLOW}\$(parse_git_branch)\\n\[$(tput sgr0)\] 𝝺 "
+
