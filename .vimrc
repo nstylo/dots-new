@@ -50,6 +50,7 @@ Plug 'airblade/vim-gitgutter'
 " formatting
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'jiangmiao/auto-pairs'
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
@@ -147,6 +148,13 @@ let g:ale_linters = {
 \ }
 let g:javascript_plugin_jsdoc = 1
 
+" disable toggling auto-pairs
+let g:AutoPairsShortcutToggle = ''
+let g:AutoPairsShortcutJump = ''
+let g:AutoPairsShortcutFastWrap = ''
+let g:AutoPairsFlyMode = 0
+au FileType html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['{'])
+
 " assign mapleader
 let mapleader=" "
 
@@ -212,33 +220,6 @@ map <leader>t :TagbarToggle<CR>
 " remap nerdcomment
 nnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
-
-" auto expand brackets
-inoremap (<CR> ()<Esc>:call BC_AddChar(")")<CR>i
-inoremap {<CR> {}<Esc>:call BC_AddChar("}")<CR>i
-inoremap "<CR> ""<Esc>:call BC_AddChar("\"}")<CR>i
-inoremap '<CR> ''<Esc>:call BC_AddChar("\'}")<CR>i
-" inoremap {<CR> {<CR>}<Esc>:call BC_AddChar("}")<CR><Esc>kA<CR>
-inoremap [<CR> []<Esc>:call BC_AddChar("]")<CR>i
-
-" storing brackets
-function! BC_AddChar(schar)
- if exists("b:robstack")
-    let b:robstack = b:robstack . a:schar
- else
- let b:robstack = a:schar
- endif
-endfunction
-
-" jump out of parenthesis
-" inoremap <C-j> <Esc>:call search(BC_GetChar(), "W")<CR>a
-
-" retrieving brackets
-" function! BC_GetChar()
-"  let l:char = b:robstack[strlen(b:robstack)-1]
-"      let b:robstack = strpart(b:robstack, 0, strlen(b:robstack)-1)
-"  return l:char
-" endfunction
 
 " Files + devicons -> https://coreyja.com/blog/2018/11/17/vim-fzf-with-devicons.html
 function! Fzf_files_with_dev_icons(command, root)
