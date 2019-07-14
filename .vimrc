@@ -86,6 +86,10 @@ let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 0
 " set conceallevel=1
 " let g:tex_conceal = 'abdmg'
+"spell check for latex
+autocmd FileType plaintex,tex,latex setlocal spell
+"spell check language
+set spelllang=en_gb
 
 " set gitgutter update time to 100ms
 set updatetime=100
@@ -109,6 +113,7 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/snippets']
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" add html snippets to js
 autocmd FileType javascript UltiSnipsAddFiletypes html
 
 " nerdcommenter
@@ -133,7 +138,7 @@ let g:NERDToggleCheckAllLines = 1
 let g:prettier#autoformat = 1
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
-" ALE settings
+" ALE settings for js
 let g:ale_fixers = {
 \ 'javascript': ['eslint']
 \ }
