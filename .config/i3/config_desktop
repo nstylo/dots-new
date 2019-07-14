@@ -2,14 +2,14 @@
 set $mod Mod4
 
 # Set default terminal
-set $term urxvt
+set $term kitty
 
 # Set speed of keyboard
 exec xset r rate 200 20
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 3
-new_float normal
+# new_window pixel 3
+# new_float normal
 
 # bind volume control
 bindsym $mod+Down exec --no-startup-id pulsemixer --change-volume -5
@@ -28,7 +28,7 @@ bindsym Print exec "/home/niklas/bin/capture.sh -l"
 bindsym $mod+Print exec "/home/niklas/bin/capture.sh"
 
 # toogle touchpad
-bindsym $mod+Shift+t exec "/home/niklas/bin/touchpad_toggle.sh"
+# bindsym $mod+Shift+t exec "/home/niklas/bin/touchpad_toggle.sh"
 
 # Hide borders
 hide_edge_borders none
@@ -41,7 +41,7 @@ font xft:Source Code Pro Medium 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty --single-instance
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -299,7 +299,7 @@ bar {
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.placeholder      #000000 #0c0c0c #ffffff #000000
 
   client.background       #2B2C2B
 

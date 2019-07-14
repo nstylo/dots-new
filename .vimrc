@@ -133,24 +133,13 @@ let g:NERDToggleCheckAllLines = 1
 let g:prettier#autoformat = 1
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
-" number of spaces per indentation level
-" Prettier default: 2
-let g:prettier#config#tab_width = 4
-
-" " avoid|always
-" " Prettier default: avoid
-" let g:prettier#config#arrow_parens = 'always'
-
-" " use tabs over spaces
-" " Prettier default: false
-" let g:prettier#config#use_tabs = 'true'
-
-" let g:ale_fixers = {
-" \ 'javascript': ['eslint']
-" \ }
-" let g:ale_linters = {
-" \ 'javascript': ['eslint']
-" \ }
+" ALE settings
+let g:ale_fixers = {
+\ 'javascript': ['eslint']
+\ }
+let g:ale_linters = {
+\ 'javascript': ['eslint']
+\ }
 let g:javascript_plugin_jsdoc = 1
 
 " assign mapleader
