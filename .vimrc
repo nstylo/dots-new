@@ -178,7 +178,8 @@ map <leader>g :new<CR>
 map <leader>v :vnew<CR>
 map <M-l> :bn<CR>
 map <M-h> :bp<CR>
-map <M-d> :bd<CR>
+" see .vim/plugin/Bclose.vim
+map <M-d> :Bclose<CR>
 map <M-n> :enew<CR>
 map <M-Up> :res +5<CR>
 map <M-Down> :res -5<CR>
