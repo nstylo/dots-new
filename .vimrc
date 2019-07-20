@@ -56,7 +56,15 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 " web development
 " Plug 'sheerun/vim-polyglot'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', {
+        \ 'do': 'yarn install',
+        \ 'for': [
+                \ 'javascript',
+                \ 'typescript',
+                \ 'json',
+                \ 'python',
+                \ 'markdown',
+                \ 'html' ] }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 call plug#end()
@@ -137,7 +145,7 @@ let g:NERDToggleCheckAllLines = 1
 
 " run prettier before save
 let g:prettier#autoformat = 1
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " ALE settings for js
 let g:ale_fixers = {
