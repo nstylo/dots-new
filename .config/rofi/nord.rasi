@@ -1,0 +1,48 @@
+* {
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: true;
+
+    /* nord dark colors */
+    nord-dark-bg0-hard:     #2e3440;
+    nord-dark-bg0:          #3b4252;
+    nord-dark-bg2:          #434c5e;
+    nord-dark-fg0:          #d8dee9;
+    nord-dark-fg1:          #e5e9f0;
+    nord-dark-red:          #bf616a;
+    nord-dark-orange:       #d08770;
+    nord-dark-gray:         #4c566a;
+
+    /* Theme colors */
+    background:                  @nord-dark-bg0-hard;
+    background-color:            @background;
+    foreground:                  @nord-dark-fg1;
+    border-color:                @nord-dark-gray;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @border-color;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @nord-dark-bg0;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @nord-dark-bg2;
+    selected-normal-foreground:  @nord-dark-fg0;
+
+    active-background:           @nord-dark-orange;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @nord-dark-orange;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @nord-dark-red;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @nord-dark-red;
+    selected-urgent-foreground:  @urgent-foreground;
+}
+
+/* this colorscheme uses the gruvbox layout */
+@import "gruvbox-common.rasi"
+

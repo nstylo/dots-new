@@ -241,6 +241,7 @@ exec --no-startup-id clipit
 exec --no-startup-id udiskie --tray --use-udisks2
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id kitty --title dropdown_term
+exec --no-startup-id compton
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
