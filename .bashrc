@@ -11,6 +11,7 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:~/.config/i3blocks/scripts
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/bin/flac2mp3
+export OPENER=rifle
 export EDITOR=nvim
 export BROWSER=firefox
 export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
@@ -25,7 +26,7 @@ export HISTFILESIZE=
 HISTCONTROL="erasedups:ignoreboth"
 
 # custom alias
-alias la='ls --group-directories-first -a  --color=auto'
+alias la='ls --group-directories-first -a --color=auto'
 alias ls='ls --group-directories-first --color=auto'
 alias ll='ls --group-directories-first -al --color=auto'
 alias grep='grep --color=auto'
@@ -66,4 +67,3 @@ YELLOW="\[\033[01;38;5;172m\]"
 
 PS1=""
 PS1+="${BLUE}[\u@\h] ${LIGHT_BLUE}\w${YELLOW}\$(parse_git_branch)\\n\[$(tput sgr0)\] 𝝺 "
-

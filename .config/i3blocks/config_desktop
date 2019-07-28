@@ -2,11 +2,11 @@ full_text=
 separator=false
 align=center
 separator_block_width=10
-color=#abb7b7
+color=#D8DEE9
 markup=pango
 
 [seperator]
-color=#586e75
+color=#4C566A
 
 [mediaplayer]
 command=/home/niklas/.config/i3blocks/scripts/mediaplayer Lollypop
@@ -15,7 +15,7 @@ interval=1
 signal=8
 
 [separator]
-color=#586e75
+color=#4C566A
 
 [volume]
 command=/home/niklas/.config/i3blocks/scripts/volume
@@ -23,35 +23,35 @@ interval=1
 signal=10
 
 [separator]
-color=#586e75
+color=#4C566A
 
 [disk-root]
-label=/<span color='#586e75'>:</span>
+label=/<span color='#4C566A'>:</span>
 command=df -h / | tail -1 | awk '{print $4}'
 interval=30
 
 [disk-home]
-label=~<span color='#586e75'>:</span>
+label=~<span color='#4C566A'>:</span>
 command=df -h ~ | tail -1 | awk '{print $4}'
 interval=30
 
 [disk-Music]
 full_text=abs
-label=M<span color='#586e75'>:</span>
+label=M<span color='#4C566A'>:</span>
 command=df -h ~/Music | tail -1 | awk '{print $4} '
 interval=30
 
 [disk-Bulk]
-label=B<span color='#586e75'>:</span>
+label=B<span color='#4C566A'>:</span>
 command=df -h ~/Bulk | tail -1 | awk '{print $4}'
 interval=30
 
 [separator]
-color=#586e75
+color=#4C566A
 
 [time]
-command=date "+%Y<span color='#586e75'>-</span>%m<span color='#586e75'>-</span>%d %H<span color='#586e75'>:</span>%M<span color='#586e75'>:</span>%S"
+command=date "+%Y<span color='#4C566A'>-</span>%m<span color='#4C566A'>-</span>%d %H<span color='#4C566A'>:</span>%M<span color='#4C566A'>:</span>%S"
 interval=1
 
 [separator]
-color=#586e75
+color=#4C566A

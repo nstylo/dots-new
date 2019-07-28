@@ -27,6 +27,8 @@ set mouse=a
 call plug#begin('~/.vim/plugged')
 " aesthetics
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+Plug 'mhartington/oceanic-next'
 Plug 'chrisbra/Colorizer'
 Plug 'markonm/traces.vim'
 " airline
@@ -75,16 +77,16 @@ runtime ftplugin/man.vim
 " setup gruvbox
 set termguicolors "sets to true colors
 let &t_ut=''
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark = 'medium'
-set background=dark
-colorscheme gruvbox
+" let g:gruvbox_italic=1
+" let g:gruvbox_contrast_dark = 'medium'
+" set background=dark
+colorscheme nord
 
 " setup airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme='gruvbox'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 
 " vimtex options
@@ -108,7 +110,7 @@ let g:fzf_buffers_jump = 1
 
 " vimtex autocompletion with ycm
 if !exists('g:ycm_semantic_triggers')
-	let g:ycm_semantic_triggers = {}
+    let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
@@ -140,7 +142,7 @@ let g:NERDAltDelims_java = 1
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
 " run prettier before save
@@ -211,8 +213,7 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 " map fzf
 map <M-p> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 0)<CR>
 map <M-P> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 1)<CR>
-map <leader>f :BLines<CR>
-map <leader>F :Lines<CR>
+map <leader>f :Lines<CR>
 map <leader>b :Buffers<CR>
 map <Leader>H :Helptags!<CR>
 map <Leader>: :History:<CR>

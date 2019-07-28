@@ -5,7 +5,7 @@ set $mod Mod4
 set $term kitty
 
 # Set speed of keyboard
-exec xset r rate 200 20
+exec xset r rate 220 20
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 3
@@ -265,51 +265,52 @@ exec --no-startup-id kitty --title dropdown_term
 # to:
 # background $term_background
 # Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
+# set_from_resource $term_background background
+# set_from_resource $term_foreground foreground
+# set_from_resource $term_color0     color0
+# set_from_resource $term_color1     color1
+# set_from_resource $term_color2     color2
+# set_from_resource $term_color3     color3
+# set_from_resource $term_color4     color4
+# set_from_resource $term_color5     color5
+# set_from_resource $term_color6     color6
+# set_from_resource $term_color7     color7
+# set_from_resource $term_color8     color8
+# set_from_resource $term_color9     color9
+# set_from_resource $term_color10    color10
+# set_from_resource $term_color11    color11
+# set_from_resource $term_color12    color12
+# set_from_resource $term_color13    color13
+# set_from_resource $term_color14    color14
+# set_from_resource $term_color15    color15
 
 # set polybar as standard statusline
 bar {
     position top
     status_command i3blocks
     font pango:Sauce Code Pro Nerd Font Medium 10
+    # font pango:Fira Code Medium 10
     tray_padding 5
 
     colors {
-        background #1d2021
+        background #2E3440
 
-        focused_workspace   #7c6f64 #7c6f64 #fbf1c7
-        active_workspace    #665c54 #665c54 #fbf1c7
-        inactive_workspace  #282828 #282828 #d5c4a1
-        urgent_workspace    #fb4934 #fb4934 #fbf1c7
+        focused_workspace   #4c566a #4c566a #d8dee9
+        active_workspace    #4c566a #4c566a #d8dee9
+        inactive_workspace  #3b4252 #3b4252 #d8dee9
+        urgent_workspace    #fb4934 #fb4934 #d8dee9
     }
 }
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #ebdbb2  #928474
+  client.focused          #556064 #556064 #80FFF9 #d8dee9  #81a1c1
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948  #4c566a
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.placeholder      #000000 #0c0c0c #ffffff #000000
 
-  client.background       #2B2C2B
+  client.background       #3b4252
 
 #############################
 ### settings for i3-gaps: ###
