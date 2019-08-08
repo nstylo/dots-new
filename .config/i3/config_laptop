@@ -252,6 +252,7 @@ exec --no-startup-id udiskie --tray --use-udisks2
 exec --no-startup-id nm-applet
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id kitty --title dropdown_term
+exec --no-startup-id compton
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -289,7 +290,7 @@ bar {
     position top
     status_command i3blocks
     # font pango:Sauce Code Pro Nerd Font Medium 10
-    font pango:Fira Code Bold 10
+    font pango:Fira Code Medium 10
     tray_padding 5
 
     colors {
@@ -304,7 +305,7 @@ bar {
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #d8dee9  #81a1c1
+  client.focused          #556064 #556064 #80FFF9 #81a1c1  #81a1c1
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948  #4c566a
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2

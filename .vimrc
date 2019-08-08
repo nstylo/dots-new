@@ -28,7 +28,6 @@ call plug#begin('~/.vim/plugged')
 " aesthetics
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
-Plug 'mhartington/oceanic-next'
 Plug 'chrisbra/Colorizer'
 Plug 'markonm/traces.vim'
 " airline
@@ -57,7 +56,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 " web development
-" Plug 'sheerun/vim-polyglot'
 Plug 'prettier/vim-prettier', {
         \ 'do': 'yarn install',
         \ 'for': [
@@ -102,7 +100,7 @@ autocmd FileType plaintex,tex,latex setlocal spell
 "spell check language
 set spelllang=en_gb
 
-" set gitgutter update time to 100ms
+" set editor update time to 100ms
 set updatetime=100
 
 " buffers jump to existing window
@@ -197,8 +195,8 @@ map <M-Right> :vertical res +5<CR>
 map <M-Left> :vertical res -5<CR>
 
 " move line up or down
-nnoremap <Leader>j ddp
 nnoremap <Leader>k ddkP
+nnoremap <Leader>j ddp
 
 " indent lines
 map <leader>l >>
@@ -214,10 +212,7 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 map <M-p> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 0)<CR>
 map <M-P> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 1)<CR>
 map <leader>f :Lines<CR>
-map <leader>b :Buffers<CR>
 map <Leader>H :Helptags!<CR>
-map <Leader>: :History:<CR>
-map <Leader>/ :History/<CR>
 
 " vimtex mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
