@@ -1,9 +1,9 @@
 configuration {
 	modi: "window,run,ssh,drun,combi";
-    width: 50;
+    width: 35;
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "Fira Code Medium 12";
+	font: "Fira Code Medium 16";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
