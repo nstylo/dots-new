@@ -4,9 +4,6 @@
 
 [[ $- != *i* ]] && return
 
-# clear console
-bind -x $'"\C-l":clear;'
-
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.config/i3blocks/scripts
 export PATH=$PATH:~/.cargo/bin
@@ -43,14 +40,11 @@ alias df='df -h'
 source ~/bin/extract
 source ~/bin/fuzzy
 source ~/.profile
-# source ~/.bash_prompt
-# source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
 # fzf with fd for super fast fuzzy searching
 export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude={.git,.cache,Music}'
 # export FZF_DEFAULT_OPTS='--ansi'
 export FZF_CTRL_T_COMMAND='fd --hidden --type f --exclude ".git"'
-export FZF_ALT_C_COMMAND='fd --hidden --type d --exclude ".git"'
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
