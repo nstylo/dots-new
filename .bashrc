@@ -13,7 +13,7 @@ export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/bin/flac2mp3
 export OPENER=rifle
 export EDITOR=nvim
-export BROWSER=firefox
+export BROWSER=chromium
 export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 # JAVA
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
