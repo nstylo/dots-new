@@ -53,7 +53,7 @@ bindsym $mod+x exec --no-startup-id "rofi -show window"
 bindsym $mod+shift+p exec --no-startup-id pavucontrol
 
 # Start lockscreen
-bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l blur
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c 2E3440
 
 #disable focus via mouse
 focus_follows_mouse no
@@ -289,7 +289,7 @@ bar {
         focused_workspace   #4c566a #4c566a #d8dee9
         active_workspace    #4c566a #4c566a #d8dee9
         inactive_workspace  #3b4252 #3b4252 #d8dee9
-        urgent_workspace    #fb4934 #fb4934 #d8dee9
+        urgent_workspace    #bf616a #bf616a #d8dee9
     }
 }
 
