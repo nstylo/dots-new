@@ -11,6 +11,3 @@ fi
 # Key bindings
 # ------------
 source "/home/niklas/.fzf/shell/key-bindings.bash"
-
-# Disable Alt-C / Esc-C or cd into dir
-[[ $- =~ i ]] && bind '"\ec": nop'

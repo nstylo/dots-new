@@ -55,6 +55,9 @@ Plug 'jiangmiao/auto-pairs'
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
+" markdown
+" Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " web development
 Plug 'prettier/vim-prettier', {
         \ 'do': 'yarn install',
@@ -72,19 +75,17 @@ call plug#end()
 " :Man to open man pages
 runtime ftplugin/man.vim
 
-" setup gruvbox
+" setup color scheme
 set termguicolors "sets to true colors
 let &t_ut=''
-" let g:gruvbox_italic=1
-" let g:gruvbox_contrast_dark = 'medium'
-" set background=dark
-colorscheme nord
+" colorscheme nord
+colorscheme gruvbox
 
 " setup airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme='nord'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 
 " vimtex options
@@ -93,12 +94,15 @@ let g:livepreview_previewer = 'zathura'
 let g:vimex_compiler_progname = 'nvr'
 let g:tex_flavor = "latex"
 let g:vimtex_quickfix_mode = 0
-" set conceallevel=1
-" let g:tex_conceal = 'abdmg'
 "spell check for latex
 autocmd FileType plaintex,tex,latex setlocal spell
 "spell check language
 set spelllang=en_gb
+
+" set to 1, the nvim will auto close current preview window
+" when change from markdown buffer to another buffer
+" default: 1
+let g:mkdp_auto_close = 0
 
 " set editor update time to 100ms
 set updatetime=100
