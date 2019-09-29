@@ -53,7 +53,7 @@ bindsym $mod+x exec --no-startup-id "rofi -show window"
 bindsym $mod+shift+p exec --no-startup-id pavucontrol
 
 # Start lockscreen
-bindsym $mod+Shift+x exec --no-startup-id i3lock -c 2E3440
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c 282828
 
 #disable focus via mouse
 focus_follows_mouse no
@@ -242,7 +242,6 @@ exec --no-startup-id clipit
 exec --no-startup-id udiskie --tray --use-udisks2
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id kitty --title dropdown_term
-exec --no-startup-id compton
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -280,28 +279,28 @@ bar {
     position top
     status_command i3blocks
     # font pango:Sauce Code Pro Nerd Font Medium 10
-    font pango:Fira Code Medium 10
+    font pango:Fira Code Medium 9
     tray_padding 5
 
     colors {
-        background #2E3440
+        background #1d2021
 
-        focused_workspace   #4c566a #4c566a #d8dee9
-        active_workspace    #4c566a #4c566a #d8dee9
-        inactive_workspace  #3b4252 #3b4252 #d8dee9
-        urgent_workspace    #bf616a #bf616a #d8dee9
+        focused_workspace   #504945 #504945 #ffffff
+        active_workspace    #504945 #504945 #ffffff
+        inactive_workspace  #282828 #282828 #ffffff
+        urgent_workspace    #fb4934 #fb4934 #ffffff
     }
 }
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #81a1c1  #81a1c1
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948  #4c566a
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+  client.focused          #83a598 #7c6f64 #fbf1c7 #83a598  #83a598
+  client.focused_inactive #504945 #504945 #d5c4a1 #454948
+  client.unfocused        #504945 #504945 #d5c4a1 #454948  #504945
+  client.urgent           #CB4B16 #FDF6E3 #d5c4a1 #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000
 
-  client.background       #3b4252
+  client.background       #282828
 
 #############################
 ### settings for i3-gaps: ###

@@ -79,6 +79,7 @@ runtime ftplugin/man.vim
 set termguicolors "sets to true colors
 let &t_ut=''
 " colorscheme nord
+" let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
 
 " setup airline
