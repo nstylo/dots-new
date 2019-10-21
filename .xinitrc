@@ -7,7 +7,7 @@ sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # swap escape and caps
-setxkbmap -option caps:swapescape
+# setxkbmap -option caps:swapescape
 
 # merge in defaults and keymaps
 
