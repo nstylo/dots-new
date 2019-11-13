@@ -11,7 +11,3 @@ fi
 # Key bindings
 # ------------
 source "/home/niklas/.fzf/shell/key-bindings.bash"
-
-# Re-bind it to CTRL-Q
-bind "$(bind -s | grep '^"\\ec"' | sed 's/ec/C-q/')"
-[[ $- =~ i ]] && bind '"\ec": nop'
