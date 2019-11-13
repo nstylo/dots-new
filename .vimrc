@@ -27,7 +27,7 @@ set mouse=a
 call plug#begin('~/.vim/plugged')
 " aesthetics
 Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 Plug 'chrisbra/Colorizer'
 Plug 'markonm/traces.vim'
 " airline
@@ -54,7 +54,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 " markdown
 " Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
@@ -154,7 +154,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json,*.graphql,*.md,*.vue,*.ya
 
 " ALE settings for js
 let g:ale_fixers = {
-\ 'javascript': ['eslint']
+\ 'javascript': ['eslint'],
 \ }
 let g:ale_linters = {
 \ 'javascript': ['eslint']
