@@ -27,7 +27,6 @@ set mouse=a
 call plug#begin('~/.vim/plugged')
 " aesthetics
 Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
 Plug 'chrisbra/Colorizer'
 Plug 'markonm/traces.vim'
 " airline
@@ -54,9 +53,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'majutsushi/tagbar'
 " markdown
-" Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " web development
 Plug 'prettier/vim-prettier', {
@@ -64,6 +62,10 @@ Plug 'prettier/vim-prettier', {
         \ 'for': [
                 \ 'javascript',
                 \ 'typescript',
+                \ 'css',
+                \ 'less',
+                \ 'scss',
+                \ 'graphql',
                 \ 'json',
                 \ 'python',
                 \ 'markdown',
@@ -78,8 +80,6 @@ runtime ftplugin/man.vim
 " setup color scheme
 set termguicolors "sets to true colors
 let &t_ut=''
-" colorscheme nord
-" let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
 
 " setup airline
@@ -100,7 +100,7 @@ autocmd FileType plaintex,tex,latex setlocal spell
 "spell check language
 set spelllang=en_gb
 
-" set to 1, the nvim will auto close current preview window
+" set to 1, nvim will auto close current preview window
 " when change from markdown buffer to another buffer
 " default: 1
 let g:mkdp_auto_close = 0
@@ -123,7 +123,7 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-j>'
 
 " snippet bindings
-let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/snippets']
+let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips']
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -199,14 +199,6 @@ map <M-Down> :res -5<CR>
 map <M-Right> :vertical res +5<CR>
 map <M-Left> :vertical res -5<CR>
 
-" move line up or down
-nnoremap <Leader>k ddkP
-nnoremap <Leader>j ddp
-
-" indent lines
-map <leader>l >>
-map <leader>h <<
-
 " substitute makro
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
@@ -214,43 +206,16 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
-map <M-p> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 0)<CR>
-map <M-P> :call Fzf_files_with_dev_icons($FZF_DEFAULT_COMMAND, 1)<CR>
+map <M-p> :FZF<CR>
 map <leader>f :Lines<CR>
-map <Leader>H :Helptags!<CR>
+map <Leader>h :Helptags!<CR>
 
 " vimtex mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
 
 " nerdtree toggle
 map <C-n> :NERDTreeToggle<CR>
-" tagbar toggle
-map <leader>t :TagbarToggle<CR>
 
 " remap nerdcomment
 nnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
-
-" Files + devicons -> https://coreyja.com/blog/2018/11/17/vim-fzf-with-devicons.html
-function! Fzf_files_with_dev_icons(command, root)
-  let l:fzf_files_options = '--preview "bat --color always --style numbers {2..} | head -'.&lines.'"'
-   function! s:edit_devicon_prepended_file(item)
-        let l:file_path = a:item[4:-1]
-    execute 'silent e' l:file_path
-  endfunction
-  if a:root == 0
-   call fzf#run({
-        \ 'source': a:command.' | devicon-lookup',
-        \ 'sink':   function('s:edit_devicon_prepended_file'),
-        \ 'options': '-m ' . l:fzf_files_options,
-        \ 'down':    '40%',
-        \ 'dir': "~"})
-   else
-    call fzf#run({
-        \ 'source': a:command.' | devicon-lookup',
-        \ 'sink':   function('s:edit_devicon_prepended_file'),
-        \ 'options': '-m ' . l:fzf_files_options,
-        \ 'down':    '40%',
-        \ 'dir': "/"})
-    endif
-endfunction
