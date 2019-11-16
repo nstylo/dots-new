@@ -154,7 +154,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json,*.graphql,*.md,*.vue,*.ya
 
 " ALE settings for js
 let g:ale_fixers = {
-\ 'javascript': ['eslint']
+\ 'javascript': ['eslint'],
 \ }
 let g:ale_linters = {
 \ 'javascript': ['eslint']
