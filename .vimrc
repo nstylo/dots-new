@@ -41,7 +41,13 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " linting and autocomplete
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 " snippets
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
@@ -111,16 +117,17 @@ set updatetime=100
 " buffers jump to existing window
 let g:fzf_buffers_jump = 1
 
-" vimtex autocompletion with ycm
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-j>'
+" start deoplete
+let g:deoplete#enable_at_startup = 1
+" custom options
+call deoplete#custom#option({
+\ 'max_list': 30
+\ })
+" remap deoplete keys
+inoremap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-k>  pumvisible() ? "\<C-p>" : "\<TAB>"
+" Don't show doc window
+set completeopt-=preview
 
 " snippet bindings
 let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips']
