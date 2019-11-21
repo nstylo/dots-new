@@ -17,8 +17,8 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 export PATH=$PATH:$JAVA_HOME/bin
 
 # unlimited bash history
-export HISTSIZE=
-export HISTFILESIZE=
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 # avoid duplicate entries
 HISTCONTROL="erasedups:ignoreboth"
 
