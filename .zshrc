@@ -104,6 +104,8 @@ alias mkd='mkdir -pv'
 alias cp='cp -i'
 alias df='df -h'
 
+. /usr/share/z/z.sh
+
 # fzf with fd for super fast fuzzy searching
 export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude={.git,.cache,Music}'
 # export FZF_DEFAULT_OPTS='--ansi'
