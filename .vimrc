@@ -192,6 +192,13 @@ vnoremap p "0p
 nnoremap P ""p
 vnoremap P ""p
 
+" ctags goto definition
+nnoremap tj <C-]>
+" ctags next
+nnoremap tn :tn<CR>
+" ctags prev
+nnoremap tp :tp<CR>
+
 " easy buffer movement
 map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
