@@ -48,6 +48,7 @@ zplug load
 
 # vim mode
 bindkey -v
+bindkey "^?" backward-delete-char
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
