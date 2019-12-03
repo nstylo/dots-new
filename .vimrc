@@ -88,6 +88,9 @@ set termguicolors "sets to true colors
 let &t_ut=''
 colorscheme gruvbox
 
+" disable markdown folding
+let g:vim_markdown_folding_disabled = 1
+
 " setup airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
