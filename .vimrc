@@ -58,10 +58,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 " nerdtree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " markdown
-Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
 " web development
 Plug 'prettier/vim-prettier', {
         \ 'do': 'yarn install',
@@ -135,7 +135,7 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " add html snippets to js
-autocmd FileType javascript UltiSnipsAddFiletypes html
+autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx UltiSnipsAddFiletypes html
 
 " nerdcommenter
 " Add spaces after comment delimiters by default
