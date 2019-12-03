@@ -167,7 +167,8 @@ let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ }
 let g:ale_linters = {
-\ 'javascript': ['eslint']
+\ 'javascript': ['eslint'],
+\ 'c': ['gcc']
 \ }
 let g:javascript_plugin_jsdoc = 1
 
