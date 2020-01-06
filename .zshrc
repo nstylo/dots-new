@@ -90,6 +90,7 @@ alias ls='ls --group-directories-first --color=auto'
 alias ll='ls --group-directories-first -al --color=auto'
 alias gs='git status'
 alias gc='git commit'
+alias ga='git add'
 alias gps='git push'
 alias gpl='git pull'
 alias gl='git log --oneline'
@@ -103,6 +104,7 @@ alias r='ranger'
 alias mkd='mkdir -pv'
 alias cp='cp -i'
 alias df='df -h'
+alias remotebox='ssh -p 9457 -L 8080:localhost:8080 78.47.102.185'
 
 . /usr/share/z/z.sh
 
