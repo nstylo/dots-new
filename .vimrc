@@ -30,8 +30,9 @@ Plug 'morhetz/gruvbox'
 Plug 'chrisbra/Colorizer'
 Plug 'markonm/traces.vim'
 " airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'ap/vim-buftabline'
 Plug 'ryanoasis/vim-devicons'
 " fuzzy finding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -92,11 +93,11 @@ colorscheme gruvbox
 let g:vim_markdown_folding_disabled = 1
 
 " setup airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'default'
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline_theme='gruvbox'
+" let g:airline_powerline_fonts = 1
 
 " vimtex options
 let g:vimtex_view_method = 'zathura'
