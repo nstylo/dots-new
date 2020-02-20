@@ -29,9 +29,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'chrisbra/Colorizer'
 Plug 'markonm/traces.vim'
-" airline
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+" status and bufferline
 Plug 'ap/vim-buftabline'
 Plug 'ryanoasis/vim-devicons'
 " fuzzy finding
@@ -40,17 +38,7 @@ Plug 'junegunn/fzf.vim'
 " latex
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-" linting and autocomplete
-Plug 'w0rp/ale'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 " snippets
-Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 " git
 Plug 'airblade/vim-gitgutter'
@@ -63,21 +51,11 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
-" web development
-Plug 'prettier/vim-prettier', {
-        \ 'do': 'yarn install',
-        \ 'for': [
-                \ 'javascript',
-                \ 'typescript',
-                \ 'css',
-                \ 'less',
-                \ 'scss',
-                \ 'graphql',
-                \ 'json',
-                \ 'python',
-                \ 'markdown',
-                \ 'html' ] }
+" linting, syntax highlighting, lsp ...
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'mxw/vim-jsx'
 call plug#end()
 
@@ -91,13 +69,6 @@ colorscheme gruvbox
 
 " disable markdown folding
 let g:vim_markdown_folding_disabled = 1
-
-" setup airline
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#formatter = 'default'
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline_theme='gruvbox'
-" let g:airline_powerline_fonts = 1
 
 " vimtex options
 let g:vimtex_view_method = 'zathura'
@@ -116,30 +87,53 @@ set spelllang=en_gb
 let g:mkdp_auto_close = 0
 
 " set editor update time to 100ms
-set updatetime=100
+set updatetime=200
 
 " buffers jump to existing window
 let g:fzf_buffers_jump = 1
 
-" start deoplete
-let g:deoplete#enable_at_startup = 1
-" custom options
-call deoplete#custom#option({
-\ 'max_list': 30
-\ })
-" remap deoplete keys
-inoremap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-k>  pumvisible() ? "\<C-p>" : "\<TAB>"
-" Don't show doc window
-set completeopt-=preview
+" coc
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-snippets', 'coc-html', 'coc-css', 'coc-markdownlint', 'coc-texlab', 'coc-python']
 
-" snippet bindings
-let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips']
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-" add html snippets to js
-autocmd FileType javascript,javascript.jsx,typescript,typescript.tsx UltiSnipsAddFiletypes html
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" CocCommand and CocList abrv
+command! -nargs=0 CC :CocCommand
+command! -nargs=0 CL :CocList
+command! -nargs=0 CA :CocAction
+
+" autocomplete
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<s-tab>'
 
 " nerdcommenter
 " Add spaces after comment delimiters by default
@@ -159,29 +153,17 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
-" run prettier before save
-let g:prettier#autoformat = 1
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-" ALE settings for js
-let g:ale_fixers = {
-\ 'javascript': ['eslint'],
-\ }
-let g:ale_linters = {
-\ 'javascript': ['eslint'],
-\ 'c': ['gcc']
-\ }
-let g:javascript_plugin_jsdoc = 1
-
 " disable toggling auto-pairs
 let g:AutoPairsShortcutToggle = ''
 let g:AutoPairsShortcutJump = ''
 let g:AutoPairsShortcutFastWrap = ''
 let g:AutoPairsFlyMode = 0
-au FileType html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['{'])
 
 " assign mapleader
 let mapleader=" "
+
+" Symbol renaming.
+nmap <leader>n <Plug>(coc-rename)
 
 " copy to clipboard
 vnoremap Y "+y
@@ -192,13 +174,6 @@ vnoremap p "0p
 " paste from default register
 nnoremap P ""p
 vnoremap P ""p
-
-" ctags goto definition
-nnoremap tj <C-]>
-" ctags next
-nnoremap tn :tn<CR>
-" ctags prev
-nnoremap tp :tp<CR>
 
 " easy buffer movement
 map <silent> <C-h> :wincmd h<CR>
