@@ -10,5 +10,6 @@ set guioptions "sv"
 map i recolor
 map p print
 map r reload
+map R rotate
 
 set selection-clipboard clipboard
