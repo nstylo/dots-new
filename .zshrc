@@ -104,6 +104,7 @@ alias r='ranger'
 alias mkd='mkdir -pv'
 alias cp='cp -i'
 alias df='df -h'
+alias du='du -h'
 alias remotebox='ssh -p 9457 -L 8080:localhost:8080 78.47.102.185'
 alias o='rifle'
 
