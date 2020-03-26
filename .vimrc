@@ -27,7 +27,6 @@ set mouse=a
 call plug#begin('~/.vim/plugged')
 " aesthetics
 Plug 'morhetz/gruvbox'
-Plug 'chrisbra/Colorizer'
 Plug 'markonm/traces.vim'
 " status and bufferline
 Plug 'ap/vim-buftabline'
@@ -45,7 +44,6 @@ Plug 'airblade/vim-gitgutter'
 " formatting
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'jiangmiao/auto-pairs'
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " markdown
@@ -53,10 +51,8 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
 " linting, syntax highlighting, lsp ...
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'mxw/vim-jsx'
+Plug 'sheerun/vim-polyglot'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " :Man to open man pages
@@ -91,9 +87,6 @@ set updatetime=200
 
 " buffers jump to existing window
 let g:fzf_buffers_jump = 1
-
-" coc
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-snippets', 'coc-html', 'coc-css', 'coc-markdownlint', 'coc-texlab', 'coc-python']
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -132,8 +125,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
-let g:coc_snippet_prev = '<s-tab>'
+let g:coc_snippet_next = '<C-l>'
+let g:coc_snippet_prev = '<C-h>'
 
 " nerdcommenter
 " Add spaces after comment delimiters by default
@@ -154,10 +147,10 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 " disable toggling auto-pairs
-let g:AutoPairsShortcutToggle = ''
-let g:AutoPairsShortcutJump = ''
-let g:AutoPairsShortcutFastWrap = ''
-let g:AutoPairsFlyMode = 0
+" let g:AutoPairsShortcutToggle = ''
+" let g:AutoPairsShortcutJump = ''
+" let g:AutoPairsShortcutFastWrap = ''
+" let g:AutoPairsFlyMode = 0
 
 " assign mapleader
 let mapleader=" "
@@ -180,9 +173,6 @@ map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-l> :wincmd l<CR>
 map <silent> <C-k> :wincmd k<CR>
-map <leader>q :quit<CR>
-map <leader>g :new<CR>
-map <leader>v :vnew<CR>
 map <M-l> :bn<CR>
 map <M-h> :bp<CR>
 " see .vim/plugin/Bclose.vim
@@ -202,7 +192,6 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 " map fzf
 map <M-p> :FZF<CR>
 map <leader>f :Lines<CR>
-map <Leader>h :Helptags!<CR>
 
 " vimtex mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
