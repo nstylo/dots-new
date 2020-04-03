@@ -32,6 +32,22 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "plugins/rust", from:oh-my-zsh
 zplug "plugins/cargo", from:oh-my-zsh
 
+# zsh-syntax-highlighting
+# Declare the variable
+typeset -A ZSH_HIGHLIGHT_STYLES
+
+# To differentiate aliases from other command types
+ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
+
+# To differentiate aliases from other command types
+ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
+
+# To differentiate aliases from other command types
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold'
+
+# To differentiate aliases from other command types
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=yellow,bold'
+
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
