@@ -34,17 +34,6 @@
     # os_icon               # os identifier
     dir                     # current directory
     vcs                     # git status
-    # =========================[ Line #2 ]=========================
-    newline                 # \n
-    prompt_char             # prompt symbol
-  )
-
-  # The list of segments shown on the right. Fill it with less important segments.
-  # Right prompt on the last prompt line (where you are typing your commands) gets
-  # automatically hidden when the input line reaches it. Right prompt above the
-  # last prompt line gets hidden if it would overlap with left prompt.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-    # =========================[ Line #1 ]=========================
     status                  # exit code of the last command
     command_execution_time  # duration of the last command
     background_jobs         # presence of background jobs
@@ -96,6 +85,17 @@
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     # time                  # current time
+    # =========================[ Line #2 ]=========================
+    newline                 # \n
+    prompt_char             # prompt symbol
+  )
+
+  # The list of segments shown on the right. Fill it with less important segments.
+  # Right prompt on the last prompt line (where you are typing your commands) gets
+  # automatically hidden when the input line reaches it. Right prompt above the
+  # last prompt line gets hidden if it would overlap with left prompt.
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+    # =========================[ Line #1 ]=========================
     # =========================[ Line #2 ]=========================
     newline                 # \n
     # ip                    # ip address and bandwidth usage for a specified network interface
@@ -814,9 +814,9 @@
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=6
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=1
   # Don't show Python version next to the virtual environment name.
-  typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
+  typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
   # Separate environment name from Python version only with a space.
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
   # Custom icon.
@@ -857,6 +857,8 @@
   typeset -g POWERLEVEL9K_GOENV_SHOW_SYSTEM=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_GOENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  # if not empty, incorrect name shown when virtualenv is called e.g. 'venv'
+  typeset -g POWERLEVEL9K_VIRTUALENV_GENERIC_NAMES=()
 
   ##########[ nodenv: node.js version from nodenv (https://github.com/nodenv/nodenv) ]##########
   # Nodenv color.

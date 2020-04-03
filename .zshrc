@@ -33,20 +33,12 @@ zplug "plugins/rust", from:oh-my-zsh
 zplug "plugins/cargo", from:oh-my-zsh
 
 # zsh-syntax-highlighting
-# Declare the variable
 typeset -A ZSH_HIGHLIGHT_STYLES
-
-# To differentiate aliases from other command types
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
-
-# To differentiate aliases from other command types
 ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
-
-# To differentiate aliases from other command types
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=green,bold'
-
-# To differentiate aliases from other command types
 ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=yellow,bold'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=magenta,bold'
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -112,6 +104,7 @@ alias grep='grep --color=auto'
 alias shutdown='shutdown now'
 alias suspend='systemctl suspend'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfg='config'
 alias vim='nvim'
 alias v='vim'
 alias pac='sudo pacman'
@@ -144,5 +137,3 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
