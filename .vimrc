@@ -1,4 +1,5 @@
 set nocompatible
+
 set number relativenumber
 set showcmd
 set tabstop=4
@@ -29,7 +30,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'markonm/traces.vim'
 " status and bufferline
-Plug 'ap/vim-buftabline'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'moll/vim-bbye'
+Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 " fuzzy finding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -52,7 +55,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'ma
 " linting, syntax highlighting, lsp ...
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
-Plug 'majutsushi/tagbar'
 call plug#end()
 
 " :Man to open man pages
@@ -62,6 +64,40 @@ runtime ftplugin/man.vim
 set termguicolors "sets to true colors
 let &t_ut=''
 colorscheme gruvbox
+
+" configure lightline
+let g:lightline = {
+    \ 'colorscheme': 'gruvbox',
+    \ 'component': {
+    \ 'lineinfo': "%{line('.') . '/' . line('$')}",
+    \ },
+    \ 'component_function': {
+    \ 'modified': 'LightlineModified',
+    \ 'readonly': 'LightlineReadonly',
+    \ }
+\ }
+let g:lightline.active = {
+    \ 'left': [ [ 'mode', 'paste' ],
+    \           ['filename', 'readonly', 'modified' ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'percent' ],
+    \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+
+function! LightlineModified()
+    return &modifiable && &modified ? '[+]' : ''
+endfunction
+function! LightlineReadonly()
+    return &readonly ? '[]' : ''
+endfunction
+
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline#bufferline#modified = ' [+]'
+let g:lightline#bufferline#read_only = ' []'
+let g:lightline#bufferline#enable_devicons = 1
+set showtabline=2
 
 " disable markdown folding
 let g:vim_markdown_folding_disabled = 1
@@ -146,12 +182,6 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
-" disable toggling auto-pairs
-" let g:AutoPairsShortcutToggle = ''
-" let g:AutoPairsShortcutJump = ''
-" let g:AutoPairsShortcutFastWrap = ''
-" let g:AutoPairsFlyMode = 0
-
 " assign mapleader
 let mapleader=" "
 
@@ -175,8 +205,7 @@ map <silent> <C-l> :wincmd l<CR>
 map <silent> <C-k> :wincmd k<CR>
 map <M-l> :bn<CR>
 map <M-h> :bp<CR>
-" see .vim/plugin/Bclose.vim
-map <M-d> :Bclose<CR>
+map <M-d> :Bdelete<CR>
 map <M-n> :enew<CR>
 map <M-Up> :res +5<CR>
 map <M-Down> :res -5<CR>
