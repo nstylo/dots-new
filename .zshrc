@@ -132,6 +132,8 @@ export FZF_CTRL_T_COMMAND='fd --hidden --type f --exclude ".git"'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey -r '\ec'
+
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
