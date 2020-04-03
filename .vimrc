@@ -188,6 +188,9 @@ let mapleader=" "
 " Symbol renaming.
 nmap <leader>n <Plug>(coc-rename)
 
+" disable ex mode
+nnoremap Q <Nop>
+
 " copy to clipboard
 vnoremap Y "+y
 
