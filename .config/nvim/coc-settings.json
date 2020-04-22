@@ -1,0 +1,61 @@
+{
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "graphql",
+    "css",
+    "html",
+    "json",
+    "markdown"
+  ],
+  "prettier.eslintIntegration": true,
+  "eslint.enable": true,
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "tsserver.enableJavascript": true,
+  "javascript.validate.enable": false,
+  "snippets.extends": {
+    "cpp": ["c"],
+    "typescript": ["javascript"],
+    "javascriptreact": ["javascript", "html", "css"],
+    "typescriptreact": ["javascript", "html", "css"]
+  },
+  "html.enable": true,
+  "html.filetypes": [
+      "html",
+      "handlebars",
+      "htmldjango"
+  ],
+  "html.validate.html": true,
+  "html.validate.scripts": true,
+  "html.validate.styles": true,
+  "html.suggest.html5": true,
+  "languageserver": {
+    "haskell": {
+      "command": "hie-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "stack.yaml",
+        "cabal.config",
+        "package.yaml"
+      ],
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ],
+      "initializationOptions": {
+        "languageServerHaskell": {
+          "hlintOn": true
+        }
+      }
+    }
+  }
+}
