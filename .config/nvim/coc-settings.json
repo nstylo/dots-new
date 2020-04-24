@@ -40,6 +40,8 @@
   "html.validate.scripts": true,
   "html.validate.styles": true,
   "html.suggest.html5": true,
+  "vetur.format.enable": false,
+  "vetur.format.defaultFormatter.html": "prettier",
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",

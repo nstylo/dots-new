@@ -2,9 +2,9 @@ set nocompatible
 
 set number relativenumber
 set showcmd
-set tabstop=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
-set shiftwidth=4
 set ignorecase
 set smarttab
 set smartindent
@@ -197,9 +197,6 @@ vnoremap Y "+y
 " paste from yank register
 nnoremap p "0p
 vnoremap p "0p
-" paste from default register
-nnoremap P ""p
-vnoremap P ""p
 
 " easy buffer movement
 map <silent> <C-h> :wincmd h<CR>
