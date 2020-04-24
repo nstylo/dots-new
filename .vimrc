@@ -210,10 +210,10 @@ map <M-l> :bn<CR>
 map <M-h> :bp<CR>
 map <M-d> :Bdelete<CR>
 map <M-n> :enew<CR>
-map <M-Up> :res +5<CR>
-map <M-Down> :res -5<CR>
-map <M-Right> :vertical res +5<CR>
-map <M-Left> :vertical res -5<CR>
+map <Up> :res +5<CR>
+map <Down> :res -5<CR>
+map <Right> :vertical res +5<CR>
+map <Left> :vertical res -5<CR>
 
 " substitute makro
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
