@@ -9,15 +9,18 @@
     "css",
     "html",
     "json",
-    "markdown"
+    "markdown",
+    "vue"
   ],
+  "prettier.disableLanguages": [],
   "prettier.eslintIntegration": true,
   "eslint.enable": true,
   "eslint.filetypes": [
     "javascript",
     "typescript",
     "javascriptreact",
-    "typescriptreact"
+    "typescriptreact",
+    "vue"
   ],
   "tsserver.enableJavascript": true,
   "javascript.validate.enable": false,
