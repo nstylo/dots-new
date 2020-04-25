@@ -31,31 +31,24 @@
     "typescriptreact": ["javascript", "html", "css"]
   },
   "html.enable": true,
-  "html.filetypes": [
-      "html",
-      "handlebars",
-      "htmldjango"
-  ],
+  "html.filetypes": ["html", "handlebars", "htmldjango"],
   "html.validate.html": true,
   "html.validate.scripts": true,
   "html.validate.styles": true,
   "html.suggest.html5": true,
   "vetur.format.enable": false,
   "vetur.format.defaultFormatter.html": "prettier",
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "vue": "html",
+    "javascript": "javascriptreact"
+  },
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",
       "args": ["--lsp"],
-      "rootPatterns": [
-        "stack.yaml",
-        "cabal.config",
-        "package.yaml"
-      ],
-      "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
-      ],
+      "rootPatterns": ["stack.yaml", "cabal.config", "package.yaml"],
+      "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {
         "languageServerHaskell": {
           "hlintOn": true

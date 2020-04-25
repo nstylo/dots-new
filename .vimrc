@@ -1,5 +1,4 @@
 set nocompatible
-
 set number relativenumber
 set showcmd
 set tabstop=2
