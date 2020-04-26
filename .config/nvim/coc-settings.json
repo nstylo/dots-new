@@ -10,7 +10,8 @@
     "html",
     "json",
     "markdown",
-    "vue"
+    "vue",
+    "python"
   ],
   "prettier.disableLanguages": [],
   "prettier.eslintIntegration": true,
@@ -43,6 +44,9 @@
     "vue": "html",
     "javascript": "javascriptreact"
   },
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "python.venvFolders": ["~/Projects/venv"],
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",

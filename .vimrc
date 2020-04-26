@@ -59,6 +59,10 @@ call plug#end()
 " :Man to open man pages
 runtime ftplugin/man.vim
 
+" specify python providers
+let g:python_host_prog = "/usr/bin/python2"
+let g:python3_host_prog = "/usr/bin/python3"
+
 " setup color scheme
 set termguicolors "sets to true colors
 let &t_ut=''
