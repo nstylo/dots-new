@@ -56,6 +56,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 " git
 Plug 'tpope/vim-fugitive'
+" wiki
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " :Man to open man pages
