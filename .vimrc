@@ -54,6 +54,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'ma
 " linting, syntax highlighting, lsp ...
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+" git
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " :Man to open man pages
@@ -237,3 +239,9 @@ vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 
 " terminal emulator
 tnoremap <Esc> <C-\><C-n>
+
+" git mappings
+nmap gs :Gstatus<CR>
+nmap ga :GitGutterStageHunk<CR>
+nmap gp :GitGutterPreviewHunk<CR>
+nmap gc :Git commit -v<CR>
