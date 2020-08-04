@@ -28,8 +28,8 @@ bindsym $mod+period exec --no-startup-id playerctl --player=Lollypop position 5+
 bindsym $mod+comma exec --no-startup-id playerctl --player=Lollypop position 5-
 
 # Screenshots
-bindsym Print exec "/home/niklas/bin/capture.sh -l"
-bindsym $mod+Print exec "/home/niklas/bin/capture.sh"
+bindsym Print exec flameshot gui
+bindsym $mod+Print exec flameshot full -c
 
 # toogle touchpad
 bindsym $mod+Shift+t exec "/home/niklas/bin/touchpad_toggle.sh"
@@ -184,7 +184,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # Open specific applications in floating mode
 for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Mtpaint"] floating enable, resize set 900 900, move position center
+for_window [class="flameshot"] floating enable, move position center
 for_window [class="Lollypop"] border pixel 3    # Lollypop does not show border otherwise
 for_window [title="dropdown_term"] move scratchpad, resize set 1325 600, move position center, sticky enable
 
@@ -248,10 +248,10 @@ mode "resize" {
 exec --no-startup-id redshift-gtk -t 6500:3500
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id clipit
-exec --no-startup-id udiskie --tray --use-udisks2
 exec --no-startup-id nm-applet
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id kitty --title dropdown_term
+exec --no-startup-id flameshot
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
