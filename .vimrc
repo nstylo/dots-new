@@ -227,6 +227,7 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
 map <M-p> :FZF<CR>
+map <M-f> :Ag<CR>
 map <leader>f :Lines<CR>
 
 " vimtex mappings
@@ -238,9 +239,6 @@ map <C-n> :NERDTreeToggle<CR>
 " remap nerdcomment
 nnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
-
-" terminal emulator
-tnoremap <Esc> <C-\><C-n>
 
 " git mappings
 nmap gs :Gstatus<CR>
