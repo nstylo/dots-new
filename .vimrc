@@ -12,6 +12,7 @@ set smartcase
 set hlsearch
 set incsearch
 set scrolloff=10
+set nowrap
 set hidden
 set autoread
 " show trailing whitespaces
