@@ -31,6 +31,8 @@
     "javascriptreact": ["javascript", "html", "css"],
     "typescriptreact": ["javascript", "html", "css"]
   },
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "html.enable": true,
   "html.filetypes": ["html", "handlebars", "htmldjango"],
   "html.validate.html": true,
