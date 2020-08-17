@@ -200,6 +200,8 @@ nmap <leader>n <Plug>(coc-rename)
 
 " disable ex mode
 nnoremap Q <Nop>
+" disable command line history
+nnoremap q: <Nop>
 
 " copy to clipboard
 vnoremap Y "+y
