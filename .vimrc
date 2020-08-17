@@ -86,10 +86,14 @@ let g:lightline = {
 \ }
 let g:lightline.active = {
     \ 'left': [ [ 'mode', 'paste' ],
-    \           ['filename', 'readonly', 'modified' ] ],
+    \           ['absolutepath', 'readonly', 'modified' ] ],
     \ 'right': [ [ 'lineinfo' ],
-    \            [ 'percent' ],
-    \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+    \            [ 'fileformat', 'filetype' ] ] }
+let g:lightline.inactive = {
+    \ 'left': [ [ 'mode', 'paste' ],
+    \           ['absolutepath', 'readonly', 'modified' ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'fileformat', 'filetype' ] ] }
 
 function! LightlineModified()
     return &modifiable && &modified ? '[+]' : ''
