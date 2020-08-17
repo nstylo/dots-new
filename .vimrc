@@ -130,6 +130,8 @@ set updatetime=200
 
 " buffers jump to existing window
 let g:fzf_buffers_jump = 1
+" set fzf layout
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6, 'border': 'rounded' } }
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
