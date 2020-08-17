@@ -233,7 +233,6 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 " map fzf
 map <M-p> :Files<CR>
 map <M-f> :Rg<CR>
-map <leader>f :Lines<CR>
 
 " vimtex mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
@@ -247,6 +246,7 @@ vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 
 " git mappings
 nmap gs :Gstatus<CR>
+nmap gl :Glog<CR>
 nmap ga :GitGutterStageHunk<CR>
 nmap gp :GitGutterPreviewHunk<CR>
 nmap gc :Git commit -v<CR>
