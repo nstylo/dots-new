@@ -228,8 +228,8 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
-map <M-p> :FZF<CR>
-map <M-f> :Ag<CR>
+map <M-p> :Files<CR>
+map <M-f> :Rg<CR>
 map <leader>f :Lines<CR>
 
 " vimtex mappings
