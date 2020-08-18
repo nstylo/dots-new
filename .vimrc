@@ -245,6 +245,7 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 " map fzf
 map <C-p> :Files<CR>
 map <C-f> :Rg<CR>
+map <C-j> :Buffers<CR>
 
 " vimtex mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
