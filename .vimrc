@@ -34,7 +34,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'moll/vim-bbye'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
-" fuzzy finding
+" navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " latex
@@ -195,6 +195,18 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+
+
+function! ZLookup(z_arg)
+  let z_command = 'cd ' . system('. /usr/share/z/z.sh && _z -e ' . a:z_arg)
+  " Strip empty newline so that command line doesn't grow when echoing
+  let z_command = substitute(z_command, "\n", "", "")
+  execute z_command
+  echo z_command
+endfunction
+
+" Change working directory using z.sh
+command! -nargs=+ Z call ZLookup(<q-args>)
 
 " assign mapleader
 let mapleader=" "
