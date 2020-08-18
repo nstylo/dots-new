@@ -215,12 +215,8 @@ nnoremap p "0p
 vnoremap p "0p
 
 " easy buffer movement
-map <silent> <C-h> :wincmd h<CR>
-map <silent> <C-j> :wincmd j<CR>
-map <silent> <C-l> :wincmd l<CR>
-map <silent> <C-k> :wincmd k<CR>
-map <M-l> :bn<CR>
-map <M-h> :bp<CR>
+map <C-l> :bn<CR>
+map <C-h> :bp<CR>
 map <M-d> :Bdelete<CR>
 map <M-n> :enew<CR>
 map <Up> :res +5<CR>
@@ -235,8 +231,8 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
-map <M-p> :Files<CR>
-map <M-f> :Rg<CR>
+map <C-p> :Files<CR>
+map <C-f> :Rg<CR>
 
 " vimtex mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
