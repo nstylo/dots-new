@@ -124,7 +124,7 @@ alias t='touch'
 export FZF_DEFAULT_COMMAND='rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor,Music}/*"'
 export FZF_DEFAULT_OPTS="--ansi --layout reverse"
 export FZF_CTRL_T_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
-export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!{.git}/*"'
+export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!{.git}/*" 2> /dev/null'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
