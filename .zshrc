@@ -2,6 +2,7 @@
 # ~/.bashrc
 #
 export PATH=$PATH:~/bin
+export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.config/i3blocks/scripts
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/bin/flac2mp3
