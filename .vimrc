@@ -1,24 +1,26 @@
 set nocompatible
+set encoding=utf-8
+set fileencoding=utf-8
 set number relativenumber
 set showcmd
-set tabstop=2
-set shiftwidth=2
-set expandtab
 set ignorecase
-set smarttab
-set smartindent
 set autoindent
-set smartcase
 set hlsearch
 set incsearch
 set scrolloff=10
 set nowrap
 set hidden
+set smartcase
 set autoread
-" show trailing whitespaces
-set listchars=tab:>·,trail:$,extends:>,precedes:<
- " Shows invisible characters
-set list
+
+" tabbing
+set nocopyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+set noexpandtab
+
 filetype plugin on
 syntax on
 
@@ -72,6 +74,7 @@ let g:python3_host_prog = "/usr/bin/python3"
 set termguicolors "sets to true colors
 let &t_ut=''
 colorscheme gruvbox
+" highlight Comment gui=italic
 
 " configure lightline
 let g:lightline = {
@@ -110,6 +113,15 @@ let g:lightline#bufferline#modified = ' [+]'
 let g:lightline#bufferline#read_only = ' []'
 let g:lightline#bufferline#enable_devicons = 1
 set showtabline=2
+
+" gitgutter
+let g:gitgutter_sign_added = '▊'
+let g:gitgutter_sign_modified = '▊'
+let g:gitgutter_sign_removed = '▊'
+highlight GitGutterAdd    guifg=#98971a
+highlight GitGutterChange guifg=#d79921
+highlight GitGutterDelete guifg=#cc241d
+let g:gitgutter_set_sign_backgrounds = 1
 
 " disable markdown folding
 let g:vim_markdown_folding_disabled = 1
@@ -264,3 +276,7 @@ nmap gl :Glog<CR>
 nmap ga :GitGutterStageHunk<CR>
 nmap gp :GitGutterPreviewHunk<CR>
 nmap gc :Git commit -v<CR>
+
+" set invisible characters
+set listchars=tab:>·,trail:$,extends:>,precedes:<
+set list

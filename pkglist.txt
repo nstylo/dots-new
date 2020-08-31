@@ -1,5 +1,6 @@
 adapta-gtk-theme
 adduser
+alacritty
 alsa-utils
 appstream-glib
 arandr
@@ -13,6 +14,7 @@ automake
 avr-gcc
 avr-libc
 avrdude
+bat
 betterlockscreen
 bind
 binutils
@@ -26,6 +28,7 @@ chromium
 clipit
 cmake
 code
+consolas-font
 ctags
 cups
 dfu-programmer
@@ -45,10 +48,10 @@ fzf
 gawk
 gcc
 gdb
-ghc
 gimp
 git
 glxinfo
+graphviz
 groff
 grub
 gst-plugins-bad
@@ -61,14 +64,12 @@ httpie
 i3-gaps
 i3blocks
 i3status
-intellij-idea-ultimate-edition
 jdk-openjdk
 jdk8-openjdk
 jq
 jre-openjdk
 jupyter-notebook
 kitty
-lf-git
 librecad
 libreoffice-fresh
 libusb-compat
@@ -102,6 +103,7 @@ nvidia-xrun
 openjdk-src
 openssh
 otf-fira-code
+otf-hasklig
 p7zip
 pacman
 pacman-contrib
@@ -139,10 +141,12 @@ signal-desktop
 simple-mtpfs
 slack-desktop-dark
 sox
+stack-static
 steam
 sudo
 sxiv
 system-config-printer
+termite
 texinfo
 the_silver_searcher
 tk
