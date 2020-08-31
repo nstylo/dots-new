@@ -1,14 +1,16 @@
 [user]
     email = niklas@stylianou.info
-	name = nstylo
+	  name = nstylo
 [merge]
-    tool = vimdiff
+    tool = nvim
+[diff]
+    tool = nvim
 [mergetool]
     prompt = true
-	keepBackup = false
-[mergetool "vimdiff"]
-    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	  keepBackup = false
 [difftool]
     prompt = false
-[diff]
-    tool = vimdiff
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
