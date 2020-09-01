@@ -54,9 +54,10 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
-" linting, syntax highlighting, lsp ...
+" linting, syntax highlighting, lsp, colorizer
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " git
 Plug 'tpope/vim-fugitive'
 " wiki
@@ -75,6 +76,9 @@ set termguicolors "sets to true colors
 let &t_ut=''
 colorscheme gruvbox
 " highlight Comment gui=italic
+
+" hexoinkase
+let g:Hexokinase_optInPatterns = 'full_hex,triple_hex,rgb,rgba,hsl,hsla,colour_names'
 
 " configure lightline
 let g:lightline = {

@@ -51,6 +51,7 @@ gdb
 gimp
 git
 glxinfo
+go
 graphviz
 groff
 grub
