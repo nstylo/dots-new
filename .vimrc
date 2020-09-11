@@ -14,12 +14,12 @@ set smartcase
 set autoread
 
 " tabbing
-set nocopyindent
-set preserveindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
 set noexpandtab
+set cindent
+set smarttab
 
 filetype plugin on
 syntax on
@@ -122,6 +122,9 @@ set showtabline=2
 let g:gitgutter_sign_added = '▊'
 let g:gitgutter_sign_modified = '▊'
 let g:gitgutter_sign_removed = '▊'
+let g:gitgutter_sign_removed_first_line = '▊'
+let g:gitgutter_sign_removed_above_and_below = '▊'
+let g:gitgutter_sign_modified_removed = '▊'
 highlight GitGutterAdd    guifg=#98971a
 highlight GitGutterChange guifg=#d79921
 highlight GitGutterDelete guifg=#cc241d
