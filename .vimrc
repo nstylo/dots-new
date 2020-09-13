@@ -17,7 +17,7 @@ set autoread
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
-set noexpandtab
+set expandtab
 set cindent
 set smarttab
 
@@ -230,9 +230,6 @@ command! -nargs=+ Z call ZLookup(<q-args>)
 " assign mapleader
 let mapleader=" "
 
-" Symbol renaming.
-nmap <leader>n <Plug>(coc-rename)
-
 " disable ex mode
 nnoremap Q <Nop>
 " disable command line history
@@ -245,11 +242,15 @@ vnoremap Y "+y
 nnoremap p "0p
 vnoremap p "0p
 
-" easy buffer movement
+" easy navigation
 map <C-l> :bn<CR>
 map <C-h> :bp<CR>
-map <M-d> :Bdelete<CR>
-map <M-n> :enew<CR>
+map <Leader>q :q<CR>
+map <Leader>d :Bdelete<CR>
+map <Leader>n :enew<CR>
+map <Leader>v :vsplit<CR>
+map <Leader>h :split<CR>
+
 map <Up> :res +5<CR>
 map <Down> :res -5<CR>
 map <Right> :vertical res +5<CR>
@@ -262,10 +263,10 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
-map <C-p> :Files<CR>
-map <C-k> :Lines<CR>
-map <C-f> :Rg<CR>
-map <C-j> :Buffers<CR>
+map <Leader>p :Files<CR>
+map <Leader>k :Lines<CR>
+map <Leader>f :Rg<CR>
+map <Leader>j :Buffers<CR>
 
 " vimtex mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
@@ -280,9 +281,10 @@ vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 " git mappings
 nmap gs :Gstatus<CR>
 nmap gl :Glog<CR>
-nmap ga :GitGutterStageHunk<CR>
-nmap gp :GitGutterPreviewHunk<CR>
 nmap gc :Git commit -v<CR>
+nmap gs <Plug>(GitGutterStageHunk)
+nmap gu <Plug>(GitGutterUndoHunk)
+nmap gp <Plug>(GitGutterPreviewHunk)
 
 " set invisible characters
 set listchars=tab:>·,trail:$,extends:>,precedes:<
