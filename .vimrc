@@ -257,6 +257,9 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 " map fzf
 map <C-p> :Files<CR>
 map <C-k> :Lines<CR>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
+  \    1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 map <C-f> :Rg<CR>
 map <C-j> :Buffers<CR>
 
