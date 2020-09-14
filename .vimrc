@@ -14,12 +14,12 @@ set smartcase
 set autoread
 
 " tabbing
-set nocopyindent
-set preserveindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
-set noexpandtab
+set expandtab
+set cindent
+set smarttab
 
 filetype plugin on
 syntax on
@@ -54,9 +54,10 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
-" linting, syntax highlighting, lsp ...
+" linting, syntax highlighting, lsp, colorizer
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " git
 Plug 'tpope/vim-fugitive'
 " wiki
@@ -75,6 +76,9 @@ set termguicolors "sets to true colors
 let &t_ut=''
 colorscheme gruvbox
 " highlight Comment gui=italic
+
+" hexoinkase
+let g:Hexokinase_optInPatterns = 'full_hex,triple_hex,rgb,rgba,hsl,hsla,colour_names'
 
 " configure lightline
 let g:lightline = {
@@ -118,10 +122,24 @@ set showtabline=2
 let g:gitgutter_sign_added = '▊'
 let g:gitgutter_sign_modified = '▊'
 let g:gitgutter_sign_removed = '▊'
+let g:gitgutter_sign_removed_first_line = '▊'
+let g:gitgutter_sign_removed_above_and_below = '▊'
+let g:gitgutter_sign_modified_removed = '▊'
 highlight GitGutterAdd    guifg=#98971a
 highlight GitGutterChange guifg=#d79921
 highlight GitGutterDelete guifg=#cc241d
 let g:gitgutter_set_sign_backgrounds = 1
+
+" haskell highlighting
+" let g:haskell_classic_highlighting = 1
+let g:haskell_indent_guard = 4
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 " disable markdown folding
 let g:vim_markdown_folding_disabled = 1
@@ -223,9 +241,6 @@ command! -nargs=+ Z call ZLookup(<q-args>)
 " assign mapleader
 let mapleader=" "
 
-" Symbol renaming.
-nmap <leader>n <Plug>(coc-rename)
-
 " disable ex mode
 nnoremap Q <Nop>
 " disable command line history
@@ -238,11 +253,15 @@ vnoremap Y "+y
 nnoremap p "0p
 vnoremap p "0p
 
-" easy buffer movement
+" easy navigation
 map <C-l> :bn<CR>
 map <C-h> :bp<CR>
-map <M-d> :Bdelete<CR>
-map <M-n> :enew<CR>
+map <Leader>q :q<CR>
+map <Leader>d :Bdelete<CR>
+map <Leader>n :enew<CR>
+map <Leader>v :vsplit<CR>
+map <Leader>h :split<CR>
+
 map <Up> :res +5<CR>
 map <Down> :res -5<CR>
 map <Right> :vertical res +5<CR>
@@ -276,9 +295,10 @@ vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 " git mappings
 nmap gs :Gstatus<CR>
 nmap gl :Glog<CR>
-nmap ga :GitGutterStageHunk<CR>
-nmap gp :GitGutterPreviewHunk<CR>
 nmap gc :Git commit -v<CR>
+nmap gs <Plug>(GitGutterStageHunk)
+nmap gu <Plug>(GitGutterUndoHunk)
+nmap gp <Plug>(GitGutterPreviewHunk)
 
 " set invisible characters
 set listchars=tab:>·,trail:$,extends:>,precedes:<
