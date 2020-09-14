@@ -187,6 +187,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="flameshot"] floating enable, move position center
 for_window [class="Lollypop"] border pixel 3    # Lollypop does not show border otherwise
 for_window [title="dropdown_term"] move scratchpad, resize set 1325 600, move position center, sticky enable
+for_window [title="^Android Emulator"] floating enable
 
 # kill all instances of 'dropdown_term' and start a new instance as scratchpad
 bindsym $mod+u [title="dropdown_term"] scratchpad show, move position center
