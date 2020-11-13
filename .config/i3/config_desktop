@@ -24,8 +24,8 @@ bindsym $mod+period exec --no-startup-id playerctl --player=Lollypop position 5+
 bindsym $mod+comma exec --no-startup-id playerctl --player=Lollypop position 5-
 
 # Screenshots
-bindsym Print exec "/home/niklas/bin/capture.sh -l"
-bindsym $mod+Print exec "/home/niklas/bin/capture.sh"
+bindsym Print exec flameshot gui
+bindsym $mod+Print exec flameshot full -c
 
 # Hide borders
 hide_edge_borders none
@@ -182,6 +182,7 @@ for_window [class="Pavucontrol"] floating enable, resize set 900 750, move posit
 for_window [class="Mtpaint"] floating enable, resize set 1800 1200, move position center
 for_window [class="Lollypop"] border pixel 3    # Lollypop does not show border otherwise
 for_window [title="dropdown_term"] move scratchpad, resize set 1800 1000, move position center, sticky enable
+for_window [class="flameshot"] floating enable, move position center
 
 # kill all instances of 'dropdown_term' and start a new instance as scratchpad
 bindsym $mod+u [title="dropdown_term"] scratchpad show, move position center
@@ -248,6 +249,7 @@ exec --no-startup-id kitty --title dropdown_term
 exec --no-startup-id lollypop
 exec --no-startup-id transmission-gtk
 exec --no-startup-id ~/bin/layout_scale.sh
+exec --no-startup-id flameshot
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
