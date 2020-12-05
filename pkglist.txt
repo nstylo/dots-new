@@ -83,6 +83,7 @@ maim
 make
 mediainfo
 meson
+minecraft-launcher
 mpv
 mtools
 neofetch
@@ -118,6 +119,7 @@ postman
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
+pycharm-community-edition
 python-matplotlib
 python-pip
 python-psycopg2
@@ -149,7 +151,9 @@ sxiv
 system-config-printer
 termite
 texinfo
+texlive-core
 the_silver_searcher
+tidy
 tk
 tmux
 transmission-gtk
