@@ -111,10 +111,12 @@ pacman
 pacman-contrib
 patch
 pavucontrol
+pgloader
 picom
 pkgconf
 playerctl
 postgresql
+postgresql-old-upgrade
 postman
 pulseaudio-alsa
 pulseaudio-bluetooth
@@ -165,6 +167,7 @@ umlet
 unoconv
 urxvt-font-size-git
 urxvt-perls
+valgrind
 virtualbox
 w3m
 weechat
