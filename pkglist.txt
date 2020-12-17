@@ -83,6 +83,7 @@ maim
 make
 mediainfo
 meson
+minecraft-launcher
 mpv
 mtools
 neofetch
@@ -110,14 +111,17 @@ pacman
 pacman-contrib
 patch
 pavucontrol
+pgloader
 picom
 pkgconf
 playerctl
 postgresql
+postgresql-old-upgrade
 postman
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
+pycharm-community-edition
 python-matplotlib
 python-pip
 python-psycopg2
@@ -149,7 +153,9 @@ sxiv
 system-config-printer
 termite
 texinfo
+texlive-core
 the_silver_searcher
+tidy
 tk
 tmux
 transmission-gtk
@@ -161,6 +167,7 @@ umlet
 unoconv
 urxvt-font-size-git
 urxvt-perls
+valgrind
 virtualbox
 w3m
 weechat
