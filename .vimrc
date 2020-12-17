@@ -295,6 +295,7 @@ vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 " git mappings
 nmap gs :Gstatus<CR>
 nmap gl :Glog<CR>
+nmap gb :Gblame<CR>
 nmap gc :Git commit -v<CR>
 nmap gs <Plug>(GitGutterStageHunk)
 nmap gu <Plug>(GitGutterUndoHunk)
