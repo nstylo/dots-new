@@ -67,6 +67,9 @@ call plug#end()
 " :Man to open man pages
 runtime ftplugin/man.vim
 
+" Disable vimwiki filetype for markdown files
+let g:vimwiki_global_ext = 0
+
 " specify python providers
 let g:python_host_prog = "/usr/bin/python2"
 let g:python3_host_prog = "/usr/bin/python3"
@@ -282,8 +285,9 @@ command! -bang -nargs=* Rg
 map <C-f> :Rg<CR>
 map <C-j> :Buffers<CR>
 
-" vimtex mappings
+" special filytype mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
+autocmd FileType markdown map <C-i> :MarkdownPreview<CR>
 
 " nerdtree toggle
 map <C-n> :NERDTreeToggle<CR>
@@ -295,6 +299,7 @@ vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
 " git mappings
 nmap gs :Gstatus<CR>
 nmap gl :Glog<CR>
+nmap gb :Gblame<CR>
 nmap gc :Git commit -v<CR>
 nmap gs <Plug>(GitGutterStageHunk)
 nmap gu <Plug>(GitGutterUndoHunk)

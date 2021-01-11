@@ -111,7 +111,7 @@ if has("browsefilter") && !exists("b:browsefilter")
 endif
 
 if !exists("g:python_recommended_style") || g:python_recommended_style != 0
-    setlocal noexpandtab shiftwidth=4 softtabstop=4 tabstop=4
+    setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
 endif
 
 " First time: try finding "pydoc".

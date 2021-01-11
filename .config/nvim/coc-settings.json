@@ -1,5 +1,5 @@
 {
-  "coc.preferences.colorSupport": true,
+  "coc.preferences.colorSupport": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",

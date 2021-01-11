@@ -13,6 +13,12 @@ export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist non
 # JAVA
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 export PATH=$PATH:$JAVA_HOME/bin
+# ANDROID
+export ANDROID_HOME=$HOME/android
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -94,7 +100,8 @@ setopt complete_aliases
 # aliases
 alias la='ls --group-directories-first -a --color=auto'
 alias ls='ls --group-directories-first --color=auto'
-alias ll='ls --human-readable --group-directories-first -al --color=auto'
+alias ll='ls --human-readable --group-directories-first -lh --color=auto'
+alias lla='ll -a'
 alias gs='git status'
 alias gc='git commit'
 alias gcb='git checkout -b'
@@ -116,7 +123,6 @@ alias mkd='mkdir -pv'
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
-alias remotebox='ssh -p 9457 -L 8080:localhost:8080 78.47.102.185'
 alias o='rifle'
 alias t='touch'
 
