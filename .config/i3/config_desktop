@@ -244,6 +244,7 @@ mode "resize" {
 exec --no-startup-id redshift-gtk -t 6500:3500
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id clipit
+exec --no-startup-id nm-applet
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id kitty --title dropdown_term
 exec --no-startup-id lollypop
