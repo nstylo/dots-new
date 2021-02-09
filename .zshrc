@@ -19,6 +19,8 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+# NODE
+export PATH=$PATH:~/.npm-packages/bin
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
