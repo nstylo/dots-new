@@ -19,6 +19,8 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+# NODE
+export PATH=$PATH:~/.npm-packages/bin
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -100,7 +102,8 @@ setopt complete_aliases
 # aliases
 alias la='ls --group-directories-first -a --color=auto'
 alias ls='ls --group-directories-first --color=auto'
-alias ll='ls --human-readable --group-directories-first -al --color=auto'
+alias ll='ls --human-readable --group-directories-first -lh --color=auto'
+alias lla='ll -a'
 alias gs='git status'
 alias gc='git commit'
 alias gcb='git checkout -b'
@@ -122,7 +125,6 @@ alias mkd='mkdir -pv'
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
-alias remotebox='ssh -p 9457 -L 8080:localhost:8080 78.47.102.185'
 alias o='rifle'
 alias t='touch'
 

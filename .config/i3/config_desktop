@@ -5,7 +5,7 @@ set $mod Mod4
 set $term kitty
 
 # Set speed of keyboard
-exec xset r rate 170 35
+# exec xset r rate 170 35
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 3
@@ -173,8 +173,8 @@ assign [class="Lollypop"] $ws8
 # Open specific workspace on Monitor
 workspace $ws1 output DisplayPort-1
 workspace $ws2 output DisplayPort-1
-workspace $ws7 output DVI-I-0
-workspace $ws8 output DVI-I-0
+workspace $ws7 output HDMI-A-0
+workspace $ws8 output HDMI-A-0
 
 # Open specific applications in floating mode
 for_window [class="Nitrogen"] floating enable
@@ -244,6 +244,7 @@ mode "resize" {
 exec --no-startup-id redshift-gtk -t 6500:3500
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id clipit
+exec --no-startup-id nm-applet
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id kitty --title dropdown_term
 exec --no-startup-id lollypop

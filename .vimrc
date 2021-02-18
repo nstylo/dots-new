@@ -80,6 +80,9 @@ let &t_ut=''
 colorscheme gruvbox
 " highlight Comment gui=italic
 
+" Visual mode colors
+highlight Visual guifg=NONE guibg=#458588 gui=NONE
+
 " hexoinkase
 let g:Hexokinase_optInPatterns = 'full_hex,triple_hex,rgb,rgba,hsl,hsla,colour_names'
 

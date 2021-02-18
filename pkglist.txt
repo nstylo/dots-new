@@ -33,6 +33,7 @@ ctags
 cups
 dfu-programmer
 dfu-util
+dia
 discord
 docker
 docker-compose
@@ -81,6 +82,7 @@ lua
 m4
 maim
 make
+mariadb
 mediainfo
 meson
 minecraft-launcher
@@ -90,6 +92,7 @@ neofetch
 neovim
 nerd-fonts-source-code-pro
 network-manager-applet
+networkmanager-openvpn
 nginx
 nicotine+
 nitrogen
@@ -104,6 +107,7 @@ nvidia-settings
 nvidia-xrun
 openjdk-src
 openssh
+openvpn
 otf-fira-code
 otf-hasklig
 p7zip
@@ -158,6 +162,7 @@ the_silver_searcher
 tidy
 tk
 tmux
+traceroute
 transmission-gtk
 ttf-dejavu
 ttf-fantasque-sans-mono
