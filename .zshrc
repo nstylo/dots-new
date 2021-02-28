@@ -1,5 +1,5 @@
 #
-# ~/.bashrc
+# ~/.zshrc
 #
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
@@ -40,6 +40,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "plugins/rust", from:oh-my-zsh
 zplug "plugins/cargo", from:oh-my-zsh
+zplug "romkatv/powerlevel10k", as:theme, depth:1
 
 # zsh-syntax-highlighting
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -59,7 +60,6 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # vim mode
 bindkey -v

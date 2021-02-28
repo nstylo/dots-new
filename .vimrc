@@ -62,6 +62,8 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'tpope/vim-fugitive'
 " wiki
 Plug 'vimwiki/vimwiki'
+" prisma
+Plug 'pantharshit00/vim-prisma'
 call plug#end()
 
 " :Man to open man pages
