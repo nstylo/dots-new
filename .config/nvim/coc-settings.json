@@ -48,8 +48,6 @@
   },
   "python.linting.pylintEnabled": true,
   "python.formatting.provider": "black",
-  "python.venvFolders": ["~/Projects/venv"],
-  "python.jediEnabled": false,
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",
