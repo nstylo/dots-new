@@ -167,6 +167,7 @@ noto-fonts-emoji
 noto-fonts-sc
 npm
 ntfs-3g
+nvm
 ocl-icd
 odt2txt
 okular
