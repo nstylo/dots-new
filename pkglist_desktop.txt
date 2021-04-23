@@ -26,6 +26,7 @@ bison
 bpython
 bridge-utils
 bzip2
+cabal-static
 calibre
 chromium
 clang
@@ -83,7 +84,8 @@ gst-plugins-good
 gst-plugins-ugly
 guile2.0
 gzip
-haskell-ide-engine
+haskell-language-server-bin
+heroku-cli
 highlight
 hlint-bin
 htop
@@ -188,7 +190,6 @@ php-apache
 picom
 pkgconf
 playerctl
-plover
 postfix
 postgresql
 postgresql-libs

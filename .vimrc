@@ -64,6 +64,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 " prisma
 Plug 'pantharshit00/vim-prisma'
+" haskell
+Plug 'vmchale/cabal-project-vim'
 call plug#end()
 
 " :Man to open man pages
