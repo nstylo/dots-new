@@ -127,6 +127,7 @@ alias df='df -h'
 alias du='du -h'
 alias o='rifle'
 alias t='touch'
+alias ns='nix-shell --command zsh'
 
 . /usr/share/z/z.sh
 
