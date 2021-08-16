@@ -56,6 +56,9 @@ bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,run -show combi -modi
 # rofi for open applications
 bindsym $mod+x exec --no-startup-id "rofi -show window"
 
+# start program launcher
+bindsym $mod+shift+p exec --no-startup-id pavucontrol
+
 # rofi for setting monitor layout
 bindsym $mod+m exec "/home/niklas/bin/monitor_layout.sh"
 

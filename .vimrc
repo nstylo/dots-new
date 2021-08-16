@@ -300,8 +300,8 @@ autocmd FileType markdown map <C-i> :MarkdownPreview<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 " remap nerdcomment
-nnoremap <C-_> :call NERDComment(0, "toggle")<CR>
-vnoremap <C-_> :call NERDComment(0, "toggle")<CR>
+nnoremap <C-_> :call nerdcommenter#Comment(0, "toggle")<CR>
+vnoremap <C-_> :call nerdcommenter#Comment(0, "toggle")<CR>
 
 " git mappings
 nmap gs :Gstatus<CR>
