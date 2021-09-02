@@ -177,6 +177,7 @@ workspace $ws7 output HDMI-A-0
 workspace $ws8 output HDMI-A-0
 
 # Open specific applications in floating mode
+for_window [title="^Android Emulator"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Pavucontrol"] floating enable, resize set 900 750, move position center
 for_window [class="Mtpaint"] floating enable, resize set 1800 1200, move position center
