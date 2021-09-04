@@ -34,6 +34,9 @@ fi
 
 source ~/.zplug/init.zsh
 
+# rust zsh completion
+fpath+=~/.zfunc
+
 # install plugins
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
