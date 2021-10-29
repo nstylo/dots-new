@@ -29,16 +29,23 @@ set mouse=a
 
 call plug#begin('~/.vim/plugged')
 " aesthetics
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'rktjmp/lush.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'markonm/traces.vim'
 " status and bufferline
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'moll/vim-bbye'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'moll/vim-bbye'
 " navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'nstylo/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 " latex
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
@@ -49,8 +56,6 @@ Plug 'airblade/vim-gitgutter'
 " formatting
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
-" nerdtree
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
@@ -66,6 +71,11 @@ Plug 'vimwiki/vimwiki'
 Plug 'pantharshit00/vim-prisma'
 " haskell
 Plug 'vmchale/cabal-project-vim'
+" debugging
+Plug 'mfussenegger/nvim-dap'
+" tree sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 call plug#end()
 
 " :Man to open man pages
@@ -77,6 +87,7 @@ let g:vimwiki_global_ext = 0
 " specify python providers
 let g:python_host_prog = "/usr/bin/python2"
 let g:python3_host_prog = "/usr/bin/python3"
+let g:chadtree_settings = { 'theme.text_colour_set': 'solarized_dark' }
 
 " setup color scheme
 set termguicolors "sets to true colors
@@ -296,17 +307,16 @@ map <C-j> :Buffers<CR>
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
 autocmd FileType markdown map <C-i> :MarkdownPreview<CR>
 
-" nerdtree toggle
-map <C-n> :NERDTreeToggle<CR>
+" Sidemenu toggle
+map <C-n> :CHADopen<CR>
 
 " remap nerdcomment
 nnoremap <C-_> :call nerdcommenter#Comment(0, "toggle")<CR>
 vnoremap <C-_> :call nerdcommenter#Comment(0, "toggle")<CR>
 
 " git mappings
-nmap gs :Gstatus<CR>
-nmap gl :Glog<CR>
-nmap gb :Gblame<CR>
+nmap gl :Gclog<CR>
+nmap gb :Git blame<CR>
 nmap gc :Git commit -v<CR>
 nmap gs <Plug>(GitGutterStageHunk)
 nmap gu <Plug>(GitGutterUndoHunk)
@@ -315,3 +325,22 @@ nmap gp <Plug>(GitGutterPreviewHunk)
 " set invisible characters
 set listchars=tab:>·,trail:$,extends:>,precedes:<
 set list
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+" lua plugins
+" lua require("_telescope")
