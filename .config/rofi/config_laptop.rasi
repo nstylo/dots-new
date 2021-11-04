@@ -1,6 +1,7 @@
 configuration {
-	modi: "window,run,ssh,drun,combi";
-    width: 50;
+	modi: "run,ssh,drun,combi,filebrowser";
+	combi-modi: "drun,run,ssh";
+	width: 50;
 /*	lines: 15;*/
 /*	columns: 1;*/
 	font: "Fira Code Medium 12";
@@ -32,7 +33,6 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-	combi-modi: "window,run,drun";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
@@ -51,7 +51,6 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "gruvbox-dark-hard";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -139,3 +138,5 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+
+@theme "gruvbox-dark-hard"
