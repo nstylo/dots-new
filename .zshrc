@@ -132,6 +132,10 @@ alias o='rifle'
 alias t='touch'
 alias ns='nix-shell --command zsh'
 
+if [[ $TERM = "xterm-kitty" ]]; then
+  alias ssh='TERM=xterm ssh'
+fi
+
 . /usr/share/z/z.sh
 
 # fzf with fd for super fast fuzzy searching
