@@ -31,7 +31,7 @@ call plug#begin('~/.vim/plugged')
 " aesthetics
 " Plug 'morhetz/gruvbox'
 Plug 'rktjmp/lush.nvim'
-Plug 'ellisonleao/gruvbox.nvim'
+Plug 'nstylo/gruvbox.nvim' " forked from ellisonleao/gruvbox.nvim
 Plug 'markonm/traces.vim'
 " status and bufferline
 Plug 'mengelbrecht/lightline-bufferline'
@@ -41,9 +41,7 @@ Plug 'moll/vim-bbye'
 " navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-Plug 'nstylo/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'nvim-telescope/telescope.nvim'
 " latex
