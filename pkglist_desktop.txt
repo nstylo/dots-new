@@ -6,6 +6,7 @@ apache
 appstream-glib
 arandr
 arc-gtk-theme
+archlinux-nix
 arduino
 arm-none-eabi-binutils
 arm-none-eabi-gcc
@@ -25,6 +26,7 @@ binutils
 bison
 bpython
 bridge-utils
+byzanz
 bzip2
 cabal-static
 calibre
@@ -162,6 +164,7 @@ networkmanager-openvpn
 nicotine+
 ninja
 nitrogen
+nix
 nmap
 nodejs
 nodejs-neovim
@@ -185,6 +188,7 @@ pacman-contrib
 patch
 pavucontrol
 pciutils
+peek
 perl
 php-apache
 picom
@@ -208,6 +212,7 @@ python-pynvim
 python-scikit-learn
 python-scipy
 python-setuptools
+python-sgmllib3k
 python-virtualenv
 python-virtualenvwrapper
 python2-neovim-git
@@ -230,6 +235,7 @@ signal-desktop
 slack-desktop-dark
 sox
 spotify
+sqlitebrowser
 stack-static
 steam
 sudo
@@ -256,6 +262,8 @@ transmission-gtk
 ttf-dejavu
 ttf-fantasque-sans-mono
 ttf-fira-code
+ttf-jetbrains-mono
+udiskie
 uncrustify
 universal-ctags-git
 unoconv

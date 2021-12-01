@@ -252,6 +252,7 @@ exec --no-startup-id lollypop
 exec --no-startup-id transmission-gtk
 exec --no-startup-id ~/bin/layout_scale.sh
 exec --no-startup-id flameshot
+exec --no-startup-id udiskie --tray
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
