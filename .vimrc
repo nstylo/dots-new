@@ -42,8 +42,9 @@ Plug 'moll/vim-bbye'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " latex
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
@@ -293,13 +294,10 @@ nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " map fzf
-map <C-p> :Files<CR>
+map <C-p> <CMD>Telescope find_files<CR>
+map <C-f> <CMD>Telescope live_grep<CR>
+map <C-j> <CMD>Telescope buffers<CR>
 map <C-k> :Lines<CR>
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
-  \    1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
-map <C-f> :Rg<CR>
-map <C-j> :Buffers<CR>
 
 " special filytype mappings
 autocmd FileType tex map <C-i> :LLPStartPreview<CR>
@@ -311,6 +309,9 @@ map <C-n> :CHADopen<CR>
 " remap nerdcomment
 nnoremap <C-_> :call nerdcommenter#Comment(0, "toggle")<CR>
 vnoremap <C-_> :call nerdcommenter#Comment(0, "toggle")<CR>
+
+" close all buffers
+map bd :bufdo bd<CR>
 
 " git mappings
 nmap gl :Gclog<CR>
@@ -338,7 +339,50 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-EOF
 
-" lua plugins
-" lua require("_telescope")
+
+local actions = require('telescope.actions')
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      n = {
+        ["<C-c>"] = actions.close,
+        -- Hack: override default behaviour with essentially "do nothing"
+        ["<Esc>"] = function() end,
+      }
+    }
+  },
+  pickers = {
+    find_files = {
+      find_command = {
+          "rg",
+          "--color=never",
+          "--files",
+          "--hidden",
+          "--smart-case",
+          "-g",
+          "!Music",
+          "-g",
+          "!Bulk",
+          "-g",
+          "!node_modules",
+          "-g",
+          "!.git",
+      },
+      previewer = false,
+    }
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
+  }
+}
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
+EOF
