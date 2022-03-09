@@ -64,8 +64,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " git
 Plug 'tpope/vim-fugitive'
-" wiki
-Plug 'vimwiki/vimwiki'
 " prisma
 Plug 'pantharshit00/vim-prisma'
 " haskell
@@ -180,7 +178,7 @@ set spelllang=en_gb
 " default: 1
 let g:mkdp_auto_close = 0
 
-" set editor update time to 100ms
+" set editor update time
 set updatetime=200
 
 " buffers jump to existing window
@@ -300,8 +298,8 @@ map <C-j> <CMD>Telescope buffers<CR>
 map <C-k> :Lines<CR>
 
 " special filytype mappings
-autocmd FileType tex map <C-i> :LLPStartPreview<CR>
-autocmd FileType markdown map <C-i> :MarkdownPreview<CR>
+autocmd FileType tex map <C-m> :LLPStartPreview<CR>
+autocmd FileType markdown map <C-m> :MarkdownPreview<CR>
 
 " Sidemenu toggle
 map <C-n> :CHADopen<CR>
