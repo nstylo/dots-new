@@ -28,6 +28,12 @@ return {
    },
    {
       "tpope/vim-fugitive",
-      cmd = "Git",
+      -- TODO: should probably support all commands
+      cmd = { "Git", "G" },
+   },
+   {
+      "iamcco/markdown-preview.nvim",
+      ft = { "markdown" },
+      run = "cd app && yarn install",
    },
 }

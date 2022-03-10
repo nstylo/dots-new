@@ -10,6 +10,7 @@ M.ensure_installed = {
    "bash",
    "yaml",
    "json",
+   "markdown",
 }
 
 return M

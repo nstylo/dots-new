@@ -16,3 +16,6 @@ map("", "<Left>", ":vertical res -5<CR>")
 
 -- Fugitive integration
 map("n", "gb", ":Git blame<CR>")
+
+-- Markdown preview
+map("n", "<C-m>", ":MarkdownPreview<CR>")
