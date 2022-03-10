@@ -6,30 +6,30 @@ local M = {}
 
 -- Changing theme:
 M.ui = {
-  theme = "gruvbox",
+   theme = "gruvbox",
 }
 
 -- make sure you maintain the structure of `core/default_config.lua` here,
 M.plugins = {
-  install = my_plugins,
-  default_plugin_config_replace = {
-    telescope = telescope_config,
-    nvim_treesitter = treesitter_config,
-  },
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.configs.lspconfig",
-    },
-  },
+   install = my_plugins,
+   default_plugin_config_replace = {
+      telescope = telescope_config,
+      nvim_treesitter = treesitter_config,
+   },
+   options = {
+      lspconfig = {
+         setup_lspconf = "custom.plugins.configs.lspconfig",
+      },
+   },
 }
 
 M.mappings = {}
 
 M.mappings.plugins = {
-  comment = {
-    -- underscore seems to be slash in vim world
-    toggle = "<C-_>",
-  },
+   comment = {
+      -- underscore seems to be slash in vim world
+      toggle = "<C-_>",
+   },
 }
 
 return M
