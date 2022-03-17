@@ -1,14 +1,20 @@
 return {
    {
       "nvim-telescope/telescope-fzf-native.nvim",
+      requires = {
+         { "nvim-telescope/telescope.nvim" },
+      },
       run = "make",
-      cmd = "Telescope",
+      -- cmd = "Telescope",
       config = function()
-         require("telescope").load_extension "fzf"
+         require("telescope").load_extension("fzf")
       end,
    },
    {
       "williamboman/nvim-lsp-installer",
+      requires = {
+         { "neovim/nvim-lspconfig" },
+      },
       -- TODO: we might want to lazy load differently
       cmd = {
          "LspInstall",

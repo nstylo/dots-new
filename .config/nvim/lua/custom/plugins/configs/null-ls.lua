@@ -7,7 +7,7 @@ local sources = {
    b.formatting.deno_fmt,
 
    -- Lua
-   b.formatting.stylua,
+   b.formatting.stylua.with { args = { "--indent-width", "3", "--indent-type", "spaces" } },
    -- b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
 
    -- Shell

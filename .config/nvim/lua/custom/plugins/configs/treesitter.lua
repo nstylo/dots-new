@@ -4,6 +4,7 @@ M.ensure_installed = {
    "lua",
    "python",
    "javascript",
+   "typescript",
    "html",
    "css",
    "comment",
@@ -11,6 +12,13 @@ M.ensure_installed = {
    "yaml",
    "json",
    "markdown",
+   "haskell",
+   "json",
+   "c",
+   "cpp",
+   "dockerfile",
+   "go",
+   "graphql",
 }
 
 return M

@@ -4,6 +4,7 @@ local map = require("core.utils").map
 map("n", "<leader>cc", ":Telescope <CR>")
 map("n", "<C-p>", ":Telescope find_files<CR>")
 map("n", "<C-f>", ":Telescope live_grep<CR>")
+map("n", "<leader>b", ":Telescope buffers<CR>")
 
 -- Copy to clipboard
 map("v", "Y", '"+y')
@@ -18,4 +19,4 @@ map("", "<Left>", ":vertical res -5<CR>")
 map("n", "gb", ":Git blame<CR>")
 
 -- Markdown preview
-map("n", "<C-m>", ":MarkdownPreview<CR>")
+map("n", "<leader>m", ":MarkdownPreview<CR>")

@@ -3,3 +3,4 @@
 
 require "custom.mappings"
 require "custom.filetype"
+require "custom.settings"

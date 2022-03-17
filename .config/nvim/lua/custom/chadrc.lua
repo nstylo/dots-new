@@ -23,7 +23,12 @@ M.plugins = {
    },
 }
 
-M.mappings = {}
+M.mappings = {
+   terminal = {
+      esc_termmode = { "<C-q>" },
+      esc_hide_termmode = {},
+   },
+}
 
 M.mappings.plugins = {
    comment = {
