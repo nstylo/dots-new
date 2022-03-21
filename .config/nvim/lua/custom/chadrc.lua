@@ -1,5 +1,6 @@
 local telescope_config = require "custom.plugins.configs.telescope"
 local treesitter_config = require "custom.plugins.configs.treesitter"
+local nvim_tree_config = require "custom.plugins.configs.nvimtree"
 local my_plugins = require "custom.plugins"
 
 local M = {}
@@ -15,6 +16,7 @@ M.plugins = {
    default_plugin_config_replace = {
       telescope = telescope_config,
       nvim_treesitter = treesitter_config,
+      nvim_tree = nvim_tree_config,
    },
    options = {
       lspconfig = {
