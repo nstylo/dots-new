@@ -12,9 +12,6 @@ return {
    },
    {
       "williamboman/nvim-lsp-installer",
-      requires = {
-         { "neovim/nvim-lspconfig" },
-      },
       -- TODO: we might want to lazy load differently
       cmd = {
          "LspInstall",
