@@ -13,14 +13,14 @@ return {
    {
       "williamboman/nvim-lsp-installer",
       -- TODO: we might want to lazy load differently
-      cmd = {
-         "LspInstall",
-         "LspInstallInfo",
-         "LspUninstall",
-         "LspUninstallAll",
-         "LspInstallLog",
-         "LspPrintInstalled",
-      },
+      -- cmd = {
+      --    "LspInstall",
+      --    "LspInstallInfo",
+      --    "LspUninstall",
+      --    "LspUninstallAll",
+      --    "LspInstallLog",
+      --    "LspPrintInstalled",
+      -- },
    },
    {
       "jose-elias-alvarez/null-ls.nvim",
@@ -39,4 +39,8 @@ return {
       ft = { "markdown" },
       run = "cd app && yarn install",
    },
+   {
+      "lark-parser/vim-lark-syntax",
+      ft = { "lark" },
+   }
 }
