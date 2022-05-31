@@ -12,11 +12,11 @@ M.ui = {
 
 -- make sure you maintain the structure of `core/default_config.lua` here,
 M.plugins = {
-   install = my_plugins,
-   default_plugin_config_replace = {
-      telescope = telescope_config,
-      nvim_treesitter = treesitter_config,
-      nvim_tree = nvim_tree_config,
+   user = my_plugins,
+   override = {
+      ["nvim-treesitter/nvim-treesitter"] = treesitter_config,
+      ["nvim-telescope/telescope.nvim"] = telescope_config,
+      ["kyazdani42/nvim-tree.lua"] = nvim_tree_config,
    },
    options = {
       lspconfig = {

@@ -22,6 +22,11 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # NODE
 export PATH=$PATH:~/.npm-packages/bin
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000

@@ -1,15 +1,17 @@
 [user]
-	email = niklas@stylianou.info
+	email = niklas.stylianou@cloudflight.io
 	name = nstylo
 [merge]
-	tool = nvim
+	tool = pycharm
 [diff]
-	tool = nvim
+        tool = pycharm
 [mergetool]
 	prompt = true
 	keepBackup = false
 [difftool]
 	prompt = false
+[mergetool "pycharm"]
+	cmd = pycharm merge $LOCAL $MERGED $REMOTE 
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "nvim"]

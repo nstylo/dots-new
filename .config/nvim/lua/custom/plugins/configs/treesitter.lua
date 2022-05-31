@@ -19,6 +19,7 @@ M.ensure_installed = {
    "dockerfile",
    "go",
    "graphql",
+   "vue",
 }
 
 return M
