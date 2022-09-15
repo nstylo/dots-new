@@ -1,0 +1,58 @@
+full_text=
+separator=false
+align=center
+separator_block_width=30
+color=#ffffff
+markup=pango
+
+[seperator]
+color=#504945
+
+[mediaplayer]
+command=/home/niklas/.config/i3blocks/scripts/mediaplayer Lollypop
+instance=Lollypop
+interval=1
+signal=8
+
+[separator]
+color=#504945
+
+[volume]
+command=/home/niklas/.config/i3blocks/scripts/volume
+interval=1
+signal=10
+
+[separator]
+color=#504945
+
+[disk-root]
+label=/<span color='#504945'>:</span>
+command=df -h / | tail -1 | awk '{print $4}'
+interval=30
+
+[disk-home]
+label=~<span color='#504945'>:</span>
+command=df -h ~ | tail -1 | awk '{print $4}'
+interval=30
+
+[disk-var]
+label=v<span color='#504945'>:</span>
+command=df -h /var | tail -1 | awk '{print $4}'
+interval=30
+
+[separator]
+color=#504945
+
+[battery]
+command=/home/niklas/.config/i3blocks/scripts/battery
+interval=30
+
+[separator]
+color=#504945
+
+[time]
+command=date "+%Y<span color='#504945'>-</span>%m<span color='#504945'>-</span>%d %H<span color='#504945'>:</span>%M<span color='#504945'>:</span>%S"
+interval=1
+
+[separator]
+color=#504945
