@@ -3,10 +3,14 @@ local b = null_ls.builtins
 
 local sources = {
 
+   -- Markup
    b.formatting.prettierd.with { filetypes = { "html", "markdown", "css", "yaml" } },
 
+   -- JS
+   b.formatting.prettier.with { filetypes = { "javascript", "typescript", "vue" } },
+
    -- Lua
-   b.formatting.stylua.with { args = { "--indent-width", "3", "--indent-type", "spaces" } },
+   b.formatting.stylua.with { filetypes = { "lua" } },
 
    -- Shell
    b.formatting.shfmt.with { args = { "-filename", "$FILENAME", "-i", "4" } },
@@ -14,8 +18,9 @@ local sources = {
    -- Python
    b.formatting.black,
 
-   -- JS
-   b.formatting.prettier.with { filetypes = { "javascript", "typescript", "vue" }},
+   -- Go
+   b.formatting.gofumpt,
+   b.formatting.goimports,
 }
 
 local M = {}

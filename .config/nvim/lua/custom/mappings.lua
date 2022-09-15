@@ -1,10 +1,9 @@
 local map = vim.keymap
 
 -- Navigation
-map.set("n", "<leader>cc", ":Telescope <CR>")
 map.set("n", "<C-p>", ":Telescope find_files<CR>")
 map.set("n", "<C-f>", ":Telescope live_grep<CR>")
-map.set("n", "<leader>b", ":Telescope buffers<CR>")
+map.set("n", "<C-b>", ":Telescope buffers<CR>")
 
 -- Copy to clipboard
 map.set("v", "Y", '"+y')
@@ -20,7 +19,3 @@ map.set("n", "gl", ":Git blame<CR>")
 
 -- Markdown preview
 map.set("n", "<leader>m", ":MarkdownPreview<CR>")
-
-map.set("n", "<C-_>", "<cmd> :lua require('Comment.api').toggle_current_linewise()<CR>")
-map.set("v", "<C-_>", "<esc><cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
-

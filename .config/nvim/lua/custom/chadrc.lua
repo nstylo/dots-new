@@ -1,6 +1,7 @@
 local telescope_config = require "custom.plugins.configs.telescope"
 local treesitter_config = require "custom.plugins.configs.treesitter"
 local nvim_tree_config = require "custom.plugins.configs.nvimtree"
+local nvim_cmp_config = require "custom.plugins.configs.cmp"
 local my_plugins = require "custom.plugins"
 
 local M = {}
@@ -17,6 +18,7 @@ M.plugins = {
       ["nvim-treesitter/nvim-treesitter"] = treesitter_config,
       ["nvim-telescope/telescope.nvim"] = telescope_config,
       ["kyazdani42/nvim-tree.lua"] = nvim_tree_config,
+      ["hrsh7th/nvim-cmp"] = nvim_cmp_config,
    },
    options = {
       lspconfig = {
@@ -27,15 +29,15 @@ M.plugins = {
 
 M.mappings = {
    terminal = {
-      esc_termmode = { "<C-q>" },
       esc_hide_termmode = {},
    },
-}
-
-M.mappings.plugins = {
-   comment = {
-      -- underscore seems to be slash in vim world
-      toggle = "<C-_>",
+   general = {
+      n = {
+         ["<Up>"] = { "<cmd> :res +5<CR>" },
+         ["<Down>"] = { "<cmd> :res -5<CR>" },
+         ["<Right>"] = { "<cmd> :vertical res +5<CR>" },
+         ["<Left>"] = { "<cmd> :vertical res -5<CR>" },
+      }
    },
 }
 

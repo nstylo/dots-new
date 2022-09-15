@@ -11,7 +11,7 @@
 [difftool]
 	prompt = false
 [mergetool "pycharm"]
-	cmd = pycharm merge $LOCAL $MERGED $REMOTE 
+	cmd = pycharm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "nvim"]
@@ -23,3 +23,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[safe]
+	directory = /home/niklas/Projects/data-api
