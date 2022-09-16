@@ -142,7 +142,9 @@ if [[ $TERM = "xterm-kitty" ]]; then
   alias ssh='TERM=xterm ssh'
 fi
 
-. /usr/share/z/z.sh
+# z for fast navigation
+# . /usr/share/z/z.sh
+eval "$(zoxide init zsh)"
 
 # fzf with fd for super fast fuzzy searching
 export FZF_DEFAULT_COMMAND='rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor,Music}/*"'

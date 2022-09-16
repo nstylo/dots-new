@@ -53,4 +53,11 @@ return {
       require "custom.plugins.configs.dap"
     end,
   },
+  ["jvgrootveld/telescope-zoxide"] = {
+    requires = {
+      "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 }

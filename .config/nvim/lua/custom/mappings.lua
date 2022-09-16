@@ -4,9 +4,7 @@ local map = vim.keymap
 map.set("n", "<C-p>", ":Telescope find_files<CR>")
 map.set("n", "<C-f>", ":Telescope live_grep<CR>")
 map.set("n", "<C-b>", ":Telescope buffers<CR>")
-
--- Copy to clipboard
-map.set("v", "Y", '"+y')
+map.set("n", "<leader>z", ":Telescope zoxide list<CR>")
 
 -- Resizing windows
 map.set("", "<Up>", ":res +5<CR>")
