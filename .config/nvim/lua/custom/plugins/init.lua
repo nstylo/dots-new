@@ -29,9 +29,11 @@ return {
     end,
     ft = { "lark" },
   },
-  -- ["raimon49/requirements.txt.vim"] = {
-  --   ft = { "requirements" },
-  -- },
+  ["raimon49/requirements.txt.vim"] = {
+    ft = { "requirements" },
+    -- TODO: this is temporary until the shebang detection is not buggy anymore
+    commit = "f3f13b9fdcb09a0903169c18014d413cbbb46c7b",
+  },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"

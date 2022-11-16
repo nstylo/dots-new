@@ -4,7 +4,7 @@ local function termcodes(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-   local M = {}
+local M = {}
 
 M.general = {
   i = {

@@ -185,9 +185,9 @@ for_window [class="Nitrogen"] floating enable
 for_window [class="Gnome-screenshot"] floating enable, resize set 900 750, move position center
 for_window [class="Pavucontrol"] floating enable, resize set 900 750, move position center
 for_window [class="Mtpaint"] floating enable, resize set 1800 1200, move position center
-for_window [class="Lollypop"] border pixel 3    # Lollypop does not show border otherwise
 for_window [title="dropdown_term"] move scratchpad, resize set 1800 1000, move position center, sticky enable
 for_window [class="flameshot"] floating enable, move position center
+for_window [class=.*] border pixel 3 # Force all windows to have border
 
 # kill all instances of 'dropdown_term' and start a new instance as scratchpad
 bindsym $mod+u [title="dropdown_term"] scratchpad show, move position center
