@@ -2,6 +2,7 @@ local map = vim.keymap
 
 -- Navigation
 map.set("n", "<C-p>", ":Telescope find_files<CR>")
+map.set("n", "gp", ":Telescope resume<CR>")
 map.set("n", "<C-f>", ":Telescope live_grep<CR>")
 map.set("n", "<C-b>", ":Telescope buffers<CR>")
 map.set("n", "<leader>z", ":Telescope zoxide list<CR>")

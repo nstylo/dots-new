@@ -44,12 +44,16 @@ source ~/.zplug/init.zsh
 # rust zsh completion
 fpath+=~/.zfunc
 
+# asdf version manager
+source /opt/asdf-vm/asdf.sh
+
 # install plugins
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "plugins/rust", from:oh-my-zsh
 zplug "romkatv/powerlevel10k", as:theme, depth:1
+zplug "kiurchv/asdf.plugin.zsh", defer:2
 
 # zsh-syntax-highlighting
 typeset -A ZSH_HIGHLIGHT_STYLES

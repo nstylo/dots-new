@@ -1,4 +1,13 @@
+local telescope_config = require "custom.plugins.configs.telescope"
+local treesitter_config = require "custom.plugins.configs.treesitter"
+local nvim_tree_config = require "custom.plugins.configs.nvimtree"
+local nvim_cmp_config = require "custom.plugins.configs.cmp"
+
 return {
+  ["nvim-treesitter/nvim-treesitter"] = treesitter_config,
+  ["nvim-telescope/telescope.nvim"] = telescope_config,
+  ["kyazdani42/nvim-tree.lua"] = nvim_tree_config,
+  ["hrsh7th/nvim-cmp"] = nvim_cmp_config,
   ["nvim-treesitter/playground"] = {},
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
@@ -20,9 +29,9 @@ return {
     end,
     ft = { "lark" },
   },
-  ["raimon49/requirements.txt.vim"] = {
-    ft = { "requirements" },
-  },
+  -- ["raimon49/requirements.txt.vim"] = {
+  --   ft = { "requirements" },
+  -- },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -59,5 +68,10 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
+  },
+  ["jbyuki/one-small-step-for-vimkind"] = {
+    config = function()
+      require "custom.plugins.configs.osv"
+    end,
   },
 }
