@@ -1,13 +1,48 @@
-local telescope_config = require "custom.plugins.configs.telescope"
-local treesitter_config = require "custom.plugins.configs.treesitter"
-local nvim_tree_config = require "custom.plugins.configs.nvimtree"
-local nvim_cmp_config = require "custom.plugins.configs.cmp"
-
 return {
-  ["nvim-treesitter/nvim-treesitter"] = treesitter_config,
-  ["nvim-telescope/telescope.nvim"] = telescope_config,
-  ["kyazdani42/nvim-tree.lua"] = nvim_tree_config,
-  ["hrsh7th/nvim-cmp"] = nvim_cmp_config,
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = function()
+      return require "custom.plugins.configs.treesitter"
+    end,
+  },
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = function()
+      return require "custom.plugins.configs.telescope"
+    end,
+  },
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = function()
+      return require "custom.plugins.configs.nvimtree"
+    end,
+  },
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = function()
+      return require "custom.plugins.configs.cmp"
+    end,
+  },
+  ["williamboman/mason.nvim"] = {
+    override_options = {
+      ensure_installed = {
+        "css-lsp",
+        "dockerfile-language-server",
+        "go-debug-adapter",
+        "gofumpt",
+        "goimports",
+        "gopls",
+        "html-lsp",
+        "lua-language-server",
+        "pyright",
+        "python-lsp-server",
+        "rust-analyzer",
+        "rustfmt",
+        "shfmt",
+        "stylua",
+        "typescript-language-server",
+        "vue-language-server",
+        "yaml-language-server",
+        "clangd",
+      },
+    },
+  },
   ["nvim-treesitter/playground"] = {},
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",

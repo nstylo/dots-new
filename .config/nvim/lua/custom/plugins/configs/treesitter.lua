@@ -24,4 +24,10 @@ M.ensure_installed = {
   "sql",
 }
 
+M.indent = {
+  enable = true,
+  -- TEMP: for some reason the treesitter indentation is buggy
+  disable = { "python" },
+}
+
 return M
