@@ -17,6 +17,7 @@ local sources = {
 
   -- Python
   b.formatting.black,
+  b.formatting.isort,
 
   -- Go
   b.formatting.gofumpt,
