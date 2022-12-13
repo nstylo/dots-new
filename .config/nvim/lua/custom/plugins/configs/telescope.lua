@@ -10,6 +10,7 @@ M.defaults = {
     "--column",
     "--smart-case",
     "--hidden",
+    "--fixed-strings",
     "-g",
     "!Music",
     "-g",

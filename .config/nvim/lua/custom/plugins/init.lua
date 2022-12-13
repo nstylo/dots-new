@@ -115,4 +115,8 @@ return {
       require "custom.plugins.configs.osv"
     end,
   },
+  ["vyperlang/vim-vyper"] = {
+    ft = { "vyper" },
+  },
+  ["gpanders/editorconfig.nvim"] = {},
 }

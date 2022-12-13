@@ -1,4 +1,5 @@
 local null_ls = require "null-ls"
+local helpers = require "null-ls.helpers"
 local b = null_ls.builtins
 
 local sources = {
@@ -22,6 +23,9 @@ local sources = {
   -- Go
   b.formatting.gofumpt,
   b.formatting.goimports,
+
+  -- QML
+  -- b.diagnostics.qmllint.with { filetypes = { "qml", "qmljs" } },
 }
 
 local M = {}
@@ -47,5 +51,28 @@ M.setup = function()
     end,
   }
 end
+
+-- Custom qmllint (errorfmt wasn't correct in builtin)
+local qmllint = {
+  method = null_ls.methods.DIAGNOSTICS,
+  filetypes = { "qml", "qmljs" },
+  -- null_ls.generator creates an async source
+  -- that spawns the command with the given arguments and options
+  generator = null_ls.generator {
+    name = "qmllint",
+    command = "qmllint",
+    args = { "$FILENAME" },
+    to_stdin = false,
+    from_stderr = true,
+    to_temp_file = true,
+    -- choose an output format (raw, json, or line)
+    format = "raw",
+    -- use helpers to parse the output from string matchers,
+    -- or parse it manually with a function
+    on_output = helpers.diagnostics.from_errorformat("%f:%l : %m", "qmllint"),
+  },
+}
+
+null_ls.register(qmllint)
 
 return M

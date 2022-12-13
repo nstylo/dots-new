@@ -54,6 +54,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "plugins/rust", from:oh-my-zsh
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "kiurchv/asdf.plugin.zsh", defer:2
+zplug "chisui/zsh-nix-shell"
 
 # zsh-syntax-highlighting
 typeset -A ZSH_HIGHLIGHT_STYLES
