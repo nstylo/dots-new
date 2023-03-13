@@ -9,11 +9,6 @@ return {
       return require "custom.plugins.configs.telescope"
     end,
   },
-  ["kyazdani42/nvim-tree.lua"] = {
-    override_options = function()
-      return require "custom.plugins.configs.nvimtree"
-    end,
-  },
   ["hrsh7th/nvim-cmp"] = {
     override_options = function()
       return require "custom.plugins.configs.cmp"
@@ -79,41 +74,12 @@ return {
       require "custom.plugins.configs.lspconfig"
     end,
   },
-  ["rcarriga/nvim-dap-ui"] = {
-    config = function()
-      require "custom.plugins.configs.dap-ui"
-    end,
-    requires = {
-      {
-        "mfussenegger/nvim-dap",
-      },
-    },
-  },
-  ["mfussenegger/nvim-dap-python"] = {
-    config = function()
-      require "custom.plugins.configs.dap-python"
-    end,
-    requires = {
-      "mfussenegger/nvim-dap",
-    },
-    ft = { "python", "htmldjango" },
-  },
-  ["mfussenegger/nvim-dap"] = {
-    config = function()
-      require "custom.plugins.configs.dap"
-    end,
-  },
   ["jvgrootveld/telescope-zoxide"] = {
     requires = {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
-  },
-  ["jbyuki/one-small-step-for-vimkind"] = {
-    config = function()
-      require "custom.plugins.configs.osv"
-    end,
   },
   ["vyperlang/vim-vyper"] = {
     ft = { "vyper" },

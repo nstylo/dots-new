@@ -1,0 +1,26 @@
+{
+    "telemetry.telemetryLevel": "off",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "editor.fontFamily": "JetBrains Mono",
+    "window.titleBarStyle": "custom",
+    "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
+    "vim.smartRelativeLine": true,
+    "workbench.colorCustomizations": {
+        "[Gruvbox Dark Medium]": {
+            "editorInlayHint.background": "#28282800",
+            "editorInlayHint.foreground": "#504945"
+        }
+    },
+    "python.languageServer": "Pylance",
+    "python.linting.pylintEnabled": false,
+    "python.analysis.typeCheckingMode": "basic",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+    },
+    "plantuml.server": "https://plantuml.macio.de",
+    "solidity.telemetry": false,
+    "window.zoomLevel": 1,
+    "extensions.ignoreRecommendations": true,
+    "git.mergeEditor": true
+}

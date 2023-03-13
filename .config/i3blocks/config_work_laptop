@@ -8,13 +8,6 @@ markup=pango
 [seperator]
 color=#504945
 
-[brightness]
-command=./scripts/i3blocks-contrib/brightness/bin/brightness -a /sys/class/backlight/intel_backlight/actual_brightness -m /sys/class/backlight/intel_backlight/max_brightness
-interval=persist
-
-[seperator]
-color=#504945
-
 [disk-root]
 label=🖴 
 command=df -h / | tail -1 | awk '{print $4}'

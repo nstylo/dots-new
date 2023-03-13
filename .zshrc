@@ -23,6 +23,8 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 # NODE
 export PATH=$PATH:~/.npm-packages/bin
+# NIX
+export PATH=$PATH:~/.nix-profile
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
