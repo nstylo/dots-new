@@ -8,7 +8,7 @@ local sources = {
   b.formatting.prettierd.with { filetypes = { "html", "markdown", "css", "yaml" } },
 
   -- JS
-  b.formatting.prettier.with { filetypes = { "javascript", "typescript", "vue" } },
+  b.formatting.prettier.with { filetypes = { "javascript", "typescript", "vue", "javascriptreact", "typescriptreact" } },
 
   -- Lua
   b.formatting.stylua.with { filetypes = { "lua" } },

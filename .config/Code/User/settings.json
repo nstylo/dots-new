@@ -5,6 +5,7 @@
     "window.titleBarStyle": "custom",
     "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
     "vim.smartRelativeLine": true,
+    "vim.useSystemClipboard": true,
     "workbench.colorCustomizations": {
         "[Gruvbox Dark Medium]": {
             "editorInlayHint.background": "#28282800",
@@ -18,9 +19,32 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
     },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true
+        }
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": true,
+    }, 
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true
+        }
+    },
     "plantuml.server": "https://plantuml.macio.de",
     "solidity.telemetry": false,
-    "window.zoomLevel": 1,
     "extensions.ignoreRecommendations": true,
-    "git.mergeEditor": true
+    "git.mergeEditor": true,
+    "explorer.compactFolders": false,
+    "openapi.securityAuditToken": "CiBaCwSiNRtSB320lze5ruSApx62c2C3Pg59o4GCNoN57RIYcyl1Vqx2xkQuvADcvDm9nXWGOLW5PkMzGndUiNxTLGwXFwSz02BPqM0wvX5lB43Khm4vzqVjaHM6YqSSsOuRgxoqgT9gLDBv9RczMXREKzl/KWqoPAkAU5oVAb2M7wBSNCWD53uckvEHMFH4RkYUxeO77RRgOs6WFebLXQKyLCSK5XrWUXlpPb/CP3I3BeZfFQ==",
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.enabled": false
 }
